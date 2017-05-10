@@ -6,25 +6,49 @@ GUNBOT_GITHUB_FOLDER_NAME=x3CoreEditionv3.1
 GUNBOT_GITHUB_FILE_NAME=GUNBOT_x3_edition_corev3.1b
 
 
-# Update the base system
+# Set functions
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-apt -qq update
-apt -y -qq upgrade
+goToGunbotFolder () {
+  cd /opt/gunbot/
+}
+
+logMessage () {
+  echo ''
+  echo $1
+  echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+}
 
 
-# Install nodejs 7.x
+echo ''
+echo '============================================================'
+echo '                   GUNBOT SETUP'
+echo ''
+echo '            This will take a few seconds'
+echo ''
+echo '============================================================'
+echo ''
+
+logMessage 'Update the base system'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+apt -qq update > /dev/null
+apt -y -qq upgrade > /dev/null
+
+
+logMessage 'Install nodejs 7.x'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 curl -qsL https://deb.nodesource.com/setup_7.x | bash - > /dev/null
-apt -y -qq install nodejs
+apt -y -qq install nodejs > /dev/null
 
 
-# Install needed tools
+logMessage 'Install npm tools'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-npm install -g pm2 yo > /dev/null
+npm install -g pm2 > /dev/null
+npm install -g yo > /dev/null
+npm install -g generator-gunbot > /dev/null
 apt -y -qq install unzip
 
 
-# Install gunbot in /opt folder
+logMessage 'Install GUNBOT'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 cd /opt
 wget -q https://github.com/GuntharDeNiro/BTCT/releases/download/${GUNBOT_GITHUB_FOLDER_NAME}/${GUNBOT_GITHUB_FILE_NAME}.zip
@@ -40,11 +64,11 @@ unzip -o -qq BB.zip -d gunbot/
 # Cleanup
 rm /opt/${GUNBOT_GITHUB_FILE_NAME}.zip /opt/BB.zip
 
-cd /opt/gunbot/
+goToGunbotFolder
 chmod +x index.js
 
 
-# Add gunbot aliases
+logMessage 'Add GUNBOT aliases'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 echo "" >> ~/.bashrc
 echo "# GUNBOT ALIASES" >> ~/.bashrc
@@ -54,8 +78,25 @@ echo "alias gl='pm2 l'" >> ~/.bashrc
 echo "alias glog='pm2 logs'" >> ~/.bashrc
 echo "alias gstart='pm2 start'" >> ~/.bashrc
 echo "alias gstop='pm2 stop'" >> ~/.bashrc
-# Restart bash to take changes effect
-bash
 
-# Start generator
+
+
+logMessage 'Init generator'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Create folder for yeoman.
+mkdir /root/.config/configstore -p
+chmod g+rwx /root /root/.config /root/.config/configstore
+cat > /root/.config/configstore/insight-yo.json << EOM
+{
+        "clientId": 1337,
+        "optOut": true
+}
+EOM
+
+logMessage 'Restart bash to take changes effect'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+exec bash
+
+logMessage 'Start generator'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+exec ginit
