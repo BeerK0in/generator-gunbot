@@ -16,11 +16,11 @@ That script will
  * install this generator-gunbot and 
  * start generator-gunbot
  
-If you want to create a VPS at DigitalOcean, you can use this affiliate link to get a $10 credit: [$10 at DigitalOcean](https://m.do.co/c/fade3d3435ba) 
+If you want to create a VPS at DigitalOcean, you can use this affiliate link: [get $10 credit at DigitalOcean](https://m.do.co/c/fade3d3435ba) 
 
 ---
 
-> If you just want to use the generator on any OS with installed GUNBOT x3 Core Edition, read on.
+> **If you just want to use the generator on any OS with installed GUNBOT x3 Core Edition, read on.**
 
 ## Installation
 
