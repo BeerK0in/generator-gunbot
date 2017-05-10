@@ -36,7 +36,8 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "collectCoverage": true
+    "collectCoverage": true,
+    "coverageDirectory": "coverage"
   },
   "scripts": {
     "prepublish": "nsp check",
