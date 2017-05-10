@@ -1,21 +1,26 @@
 # generator-gunbot [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 > Setup and manage GUNBOT x3 on Linux.
 
-If you want to setup a brand new Debian or Ubuntu VPS to run GUNBOT, just log into your VPS as root and run this install script:
+If you want to setup a brand new Debian or Ubuntu VPS to run GUNBOT, just log into your new VPS as root and run this install script:
 
 ```bash
-wget https://github.com/webcore-it/phantomjs-polyfill-array-from/blob/master/README.md | bash -
+wget https://raw.githubusercontent.com/BeerK0in/generator-gunbot/master/install.sh | bash -
 ```
 
 That script will 
- * update the system, 
+ * update the system (`apt upgrade`), 
  * install node 7.x, 
- * install required tools (yo, pm2), 
+ * install required tools (`yo`, `pm2`), 
  * install the GUNBOT x3, 
+ * creates some handy aliases,
  * install this generator-gunbot and 
  * start generator-gunbot
+ 
+If you want to create a VPS at DigitalOcean, you can use this affiliate link: [get $10 credit at DigitalOcean](https://m.do.co/c/fade3d3435ba) 
 
-If you just want to use the generator on any OS with installed GUNBOT x3, read on.
+---
+
+> **If you just want to use the generator on any OS with installed GUNBOT x3 Core Edition, read on.**
 
 ## Installation
 
@@ -51,7 +56,7 @@ This initial version of the generator-gunbot has some limitations:
 
 ## License
 
-MIT © [BeerK0in]()
+MIT © [BeerK0in](https://github.com/BeerK0in)
 
 
 [npm-image]: https://badge.fury.io/js/generator-gunbot.svg
