@@ -13,8 +13,6 @@ goToGunbotFolder () {
 }
 
 logMessage () {
-  echo ''
-  echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
   echo $1
   echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 }
@@ -46,7 +44,7 @@ logMessage 'Install npm tools'
 npm install -g pm2 > /dev/null 2>&1
 npm install -g yo > /dev/null 2>&1
 npm install -g generator-gunbot > /dev/null 2>&1
-apt -y -qq install unzip
+apt -y -qq install unzip > /dev/null 2>&1
 
 
 logMessage 'Install GUNBOT'
@@ -94,10 +92,12 @@ cat > /root/.config/configstore/insight-yo.json << EOM
 }
 EOM
 
-logMessage 'Restart bash to take changes effect'
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-exec bash
 
 logMessage 'Start generator'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-exec ginit
+exec 'yo gunbot init'
+
+
+logMessage 'Restart bash to take changes effect'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+exec bash
