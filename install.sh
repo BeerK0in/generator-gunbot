@@ -68,6 +68,7 @@ logMessage "Add GUNBOT aliases"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 echo "" >> ~/.bashrc
 echo "# GUNBOT ALIASES" >> ~/.bashrc
+echo "alias gcd='cd /opt/gunbot'" >> ~/.bashrc
 echo "alias ginit='yo gunbot init'" >> ~/.bashrc
 echo "alias gadd='yo gunbot add'" >> ~/.bashrc
 echo "alias gl='pm2 l'" >> ~/.bashrc
@@ -90,9 +91,9 @@ cat > /root/.config/configstore/insight-yo.json << EOM
 EOM
 
 
-logMessage "Start generator"
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-exec yo gunbot init
+#logMessage "Start generator"
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#exec yo gunbot init
 
 
 logMessage "Restart bash to take changes effect"
