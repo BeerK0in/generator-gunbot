@@ -14,6 +14,7 @@ goToGunbotFolder () {
 
 logMessage () {
   echo ''
+  echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
   echo $1
   echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 }
@@ -30,21 +31,21 @@ echo ''
 
 logMessage 'Update the base system'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-apt -qq update > /dev/null
-apt -y -qq upgrade > /dev/null
+apt -qq update > /dev/null 2>&1
+apt -y -qq upgrade > /dev/null 2>&1
 
 
 logMessage 'Install nodejs 7.x'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-curl -qsL https://deb.nodesource.com/setup_7.x | bash - > /dev/null
-apt -y -qq install nodejs > /dev/null
+curl -qsL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1
+apt -y -qq install nodejs > /dev/null 2>&1
 
 
 logMessage 'Install npm tools'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-npm install -g pm2 > /dev/null
-npm install -g yo > /dev/null
-npm install -g generator-gunbot > /dev/null
+npm install -g pm2 > /dev/null 2>&1
+npm install -g yo > /dev/null 2>&1
+npm install -g generator-gunbot > /dev/null 2>&1
 apt -y -qq install unzip
 
 
@@ -52,7 +53,7 @@ logMessage 'Install GUNBOT'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 cd /opt
 wget -q https://github.com/GuntharDeNiro/BTCT/releases/download/${GUNBOT_GITHUB_FOLDER_NAME}/${GUNBOT_GITHUB_FILE_NAME}.zip
-unzip -qq ${GUNBOT_GITHUB_FILE_NAME}.zip -d ${GUNBOT_GITHUB_FILE_NAME}
+unzip -o -qq ${GUNBOT_GITHUB_FILE_NAME}.zip -d ${GUNBOT_GITHUB_FILE_NAME}
 
 # creates a symbolic link to the gunbot folder
 ln -s ${GUNBOT_GITHUB_FILE_NAME} gunbot
