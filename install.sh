@@ -1,45 +1,41 @@
 #!/bin/bash
 
 # Set variables
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-GUNBOT_GITHUB_FOLDER_NAME=x3CoreEditionv3.1
-GUNBOT_GITHUB_FILE_NAME=GUNBOT_x3_edition_corev3.1b
+# -----------------------------------
+GUNBOT_GITHUB_FOLDER_NAME="x3CoreEditionv3.1"
+GUNBOT_GITHUB_FILE_NAME="GUNBOT_x3_edition_corev3.1b"
 
 
 # Set functions
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-goToGunbotFolder () {
-  cd /opt/gunbot/
-}
-
+# -----------------------------------
 logMessage () {
-  echo $1
-  echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+  echo " $1"
+  echo " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 }
 
 
-echo ''
-echo '============================================================'
-echo '                   GUNBOT SETUP'
-echo ''
-echo '            This will take a few seconds'
-echo ''
-echo '============================================================'
-echo ''
+echo ""
+echo " ============================================================"
+echo "                     GUNBOT SETUP"
+echo ""
+echo "              This will take a few seconds"
+echo ""
+echo " ============================================================"
+echo ""
 
-logMessage 'Update the base system'
+logMessage "Update the base system"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 apt -qq update > /dev/null 2>&1
 apt -y -qq upgrade > /dev/null 2>&1
 
 
-logMessage 'Install nodejs 7.x'
+logMessage "Install nodejs 7.x"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 curl -qsL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1
 apt -y -qq install nodejs > /dev/null 2>&1
 
 
-logMessage 'Install npm tools'
+logMessage "Install npm tools"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 npm install -g pm2 > /dev/null 2>&1
 npm install -g yo > /dev/null 2>&1
@@ -47,13 +43,14 @@ npm install -g generator-gunbot > /dev/null 2>&1
 apt -y -qq install unzip > /dev/null 2>&1
 
 
-logMessage 'Install GUNBOT'
+logMessage "Install GUNBOT"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 cd /opt
 wget -q https://github.com/GuntharDeNiro/BTCT/releases/download/${GUNBOT_GITHUB_FOLDER_NAME}/${GUNBOT_GITHUB_FILE_NAME}.zip
 unzip -o -qq ${GUNBOT_GITHUB_FILE_NAME}.zip -d ${GUNBOT_GITHUB_FILE_NAME}
 
 # creates a symbolic link to the gunbot folder
+rm gunbot
 ln -s ${GUNBOT_GITHUB_FILE_NAME} gunbot
 
 # Install BB patch
@@ -63,11 +60,11 @@ unzip -o -qq BB.zip -d gunbot/
 # Cleanup
 rm /opt/${GUNBOT_GITHUB_FILE_NAME}.zip /opt/BB.zip
 
-goToGunbotFolder
+cd /opt/gunbot
 chmod +x index.js
 
 
-logMessage 'Add GUNBOT aliases'
+logMessage "Add GUNBOT aliases"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 echo "" >> ~/.bashrc
 echo "# GUNBOT ALIASES" >> ~/.bashrc
@@ -80,7 +77,7 @@ echo "alias gstop='pm2 stop'" >> ~/.bashrc
 
 
 
-logMessage 'Init generator'
+logMessage "Init generator"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Create folder for yeoman.
 mkdir /root/.config/configstore -p
@@ -93,11 +90,11 @@ cat > /root/.config/configstore/insight-yo.json << EOM
 EOM
 
 
-logMessage 'Start generator'
+logMessage "Start generator"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-exec 'yo gunbot init'
+exec yo gunbot init
 
 
-logMessage 'Restart bash to take changes effect'
+logMessage "Restart bash to take changes effect"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 exec bash
