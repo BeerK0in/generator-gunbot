@@ -57,10 +57,10 @@ describe('generator-gunbot:app init', () => {
       ['BTC_JKL-config.js', `BTC_TRADING_LIMIT: ${promptsParamsInit.btcTradingLimit},`],
       ['BTC_XYZ-config.js', `BTC_TRADING_LIMIT: ${promptsParamsInit.btcTradingLimit},`],
 
-      ['base.config.js', `SELL_STRATEGY: ${promptsParamsInit.strategy},`],
-      ['BTC_ABC-config.js', `SELL_STRATEGY: ${promptsParamsInit.strategy},`],
-      ['BTC_JKL-config.js', `SELL_STRATEGY: ${promptsParamsInit.strategy},`],
-      ['BTC_XYZ-config.js', `SELL_STRATEGY: ${promptsParamsInit.strategy},`]
+      ['base.config.js', `SELL_STRATEGY: '${promptsParamsInit.strategy}',`],
+      ['BTC_ABC-config.js', `SELL_STRATEGY: '${promptsParamsInit.strategy}',`],
+      ['BTC_JKL-config.js', `SELL_STRATEGY: '${promptsParamsInit.strategy}',`],
+      ['BTC_XYZ-config.js', `SELL_STRATEGY: '${promptsParamsInit.strategy}',`]
     ]);
   });
 });
