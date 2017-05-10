@@ -3,7 +3,7 @@ const path = require('path');
 const assert = require('yeoman-assert');
 const helpers = require('yeoman-test');
 
-var promptsParamsInit = {
+const promptsParamsInit = {
   apiKey: 'this is the apikey',
   apiSecret: 'this is the apiSecret',
   btcTradingLimit: '123',
@@ -14,7 +14,7 @@ var promptsParamsInit = {
   currenciesToStart: ['ABC', 'XYZ']
 };
 
-var promptsParamsAdd = {
+const promptsParamsAdd = {
   currencyToAdd: 'MNO',
   apiKey: 'this is the apikey',
   apiSecret: 'this is the apiSecret',
