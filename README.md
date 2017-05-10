@@ -65,5 +65,6 @@ MIT © [BeerK0in](https://github.com/BeerK0in)
 [travis-url]: https://travis-ci.org/BeerK0in/generator-gunbot
 [daviddm-image]: https://david-dm.org/BeerK0in/generator-gunbot.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/BeerK0in/generator-gunbot
-[coveralls-image]: https://coveralls.io/repos/BeerK0in/generator-gunbot/badge.svg
-[coveralls-url]: https://coveralls.io/r/BeerK0in/generator-gunbot
+[coveralls-image]: https://coveralls.io/repos/github/BeerK0in/generator-gunbot/badge.svg?branch=master
+[coveralls-url]: https://coveralls.io/github/BeerK0in/generator-gunbot?branch=master
+
