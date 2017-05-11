@@ -22,7 +22,7 @@ module.exports = class extends Generator {
         'poloniex'];
 
       setTimeout(() => {
-        let process = this.spawnCommand('./node_modules/pm2/bin/pm2', args);
+        let process = this.spawnCommand('pm2', args);
         process.on('close', code => {
           if (code) {
             this.log('');
@@ -46,9 +46,9 @@ module.exports = class extends Generator {
     ));
 
     this.log('');
-    this.log(chalk.yellow('    /---------------------\\'));
-    this.log(`    >>>    ${chalk.bold.yellow(this.options.action)} mode    <<<`);
-    this.log(chalk.yellow('    \\---------------------/'));
+    this.log(chalk.yellow('            /---------------------\\'));
+    this.log(`            >>>    ${chalk.bold.yellow(this.options.action)} mode    <<<`);
+    this.log(chalk.yellow('            \\---------------------/'));
     this.log('');
 
     if (this.options.action === 'init') {
