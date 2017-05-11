@@ -82,7 +82,13 @@ logMessage "Init generator"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Create folder for yeoman.
 mkdir /root/.config/configstore -p
-chmod g+rwx /root /root/.config /root/.config/configstore
+mkdir /root/.pm2 -p
+chmod g+rwx /root
+chmod g+rwx /root/.config
+chmod g+rwx /root/.config/configstore
+chmod g+rwx /root/.pm2
+chmod g+rw /root/.pm2/*
+chmod g+rwx /opt/gunbot
 cat > /root/.config/configstore/insight-yo.json << EOM
 {
         "clientId": 1337,
