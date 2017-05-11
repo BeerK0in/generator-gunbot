@@ -1,6 +1,6 @@
 {
   "name": "generator-gunbot",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Setup and manage GUNBOT x3 on Linux",
   "homepage": "https://github.com/BeerK0in/generator-gunbot",
   "author": {
@@ -20,14 +20,15 @@
     "yeoman-generator"
   ],
   "devDependencies": {
-    "yeoman-test": "^1.6.0",
-    "yeoman-assert": "^3.0.0",
     "coveralls": "^2.12.0",
-    "nsp": "^2.6.3",
     "eslint": "^3.18.0",
     "eslint-config-xo-space": "^0.16.0",
     "jest": "^19.0.2",
-    "jest-cli": "^19.0.1"
+    "jest-cli": "^19.0.1",
+    "mock-spawn": "^0.2.6",
+    "nsp": "^2.6.3",
+    "yeoman-assert": "^3.0.0",
+    "yeoman-test": "^1.6.0"
   },
   "dependencies": {
     "yeoman-generator": "^1.0.0",

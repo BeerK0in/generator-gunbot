@@ -4,6 +4,8 @@ const chalk = require('chalk');
 const yosay = require('yosay');
 const altCurrencies = require('./currencies.js');
 
+const BOT_SLEEP_DELAY = 30;
+
 module.exports = class extends Generator {
 
   constructor(args, opts) {
@@ -22,7 +24,8 @@ module.exports = class extends Generator {
         'poloniex'];
 
       setTimeout(() => {
-        let process = this.spawnCommand('pm2', args);
+        let spawn = require('child_process').spawn;
+        let process = spawn('pm2', args);
         process.on('close', code => {
           if (code) {
             this.log('');
@@ -42,7 +45,7 @@ module.exports = class extends Generator {
   prompting() {
     // Have Yeoman greet the user.
     this.log(yosay(
-      `Welcome to the well-made ${chalk.red('generator-gunbot')} generator!`
+      `Welcome to the well-made ${chalk.red('gunbot')} generator!`
     ));
 
     this.log('');
@@ -133,6 +136,7 @@ module.exports = class extends Generator {
   }
 
   writing() {
+    let botSleepDelay = BOT_SLEEP_DELAY;
     // INIT action
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     if (this.options.action === 'init') {
@@ -144,14 +148,23 @@ module.exports = class extends Generator {
           btcTradingLimit: this.props.btcTradingLimit,
           strategy: this.props.strategy,
           buyLevel: this.props.buyLevel,
-          gainLevel: this.props.gainLevel
+          gainLevel: this.props.gainLevel,
+          botSleepDelay: botSleepDelay++
         }
       );
 
       for (let currency of this.props.currencies) {
-        this.fs.copy(
-          this.destinationPath('base.config.js'),
-          this.destinationPath(`BTC_${currency}-config.js`)
+        this.fs.copyTpl(
+          this.templatePath('base.config.js'),
+          this.destinationPath(`BTC_${currency}-config.js`), {
+            apiKey: this.props.apiKey,
+            apiSecret: this.props.apiSecret,
+            btcTradingLimit: this.props.btcTradingLimit,
+            strategy: this.props.strategy,
+            buyLevel: this.props.buyLevel,
+            gainLevel: this.props.gainLevel,
+            botSleepDelay: botSleepDelay++
+          }
         );
       }
     }
@@ -167,25 +180,24 @@ module.exports = class extends Generator {
           btcTradingLimit: this.props.btcTradingLimit,
           strategy: this.props.strategy,
           buyLevel: this.props.buyLevel,
-          gainLevel: this.props.gainLevel
+          gainLevel: this.props.gainLevel,
+          botSleepDelay: botSleepDelay++
         }
       );
     }
   }
 
   install() {
-    let timeoutCounter = 1000;
+    let timeoutCounter = 1;
 
     // INIT action
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     if (this.options.action === 'init') {
       for (let currency of this.props.currencies) {
-        if ((this.props.currenciesToStart.indexOf(currency))) {
-          return;
+        if (this.props.currenciesToStart.indexOf(currency) >= 0) {
+          this.startGunbotCurrency(currency, timeoutCounter);
+          timeoutCounter += 6000;
         }
-
-        this.startGunbotCurrency(currency, timeoutCounter);
-        timeoutCounter += 7000;
       }
     }
 
