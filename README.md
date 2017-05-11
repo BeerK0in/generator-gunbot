@@ -4,7 +4,11 @@
 If you want to setup a brand new Debian or Ubuntu VPS to run GUNBOT, just log into your new VPS as root and run this install script:
 
 ```bash
-curl -qsL https://raw.githubusercontent.com/BeerK0in/generator-gunbot/master/install.sh | bash -- && gcd && ginit
+curl -qsL https://raw.githubusercontent.com/BeerK0in/generator-gunbot/master/install.sh | bash -- && bash
+```
+After the setup run:
+```bash
+ginit
 ```
 
 That script will 
@@ -13,8 +17,7 @@ That script will
  * install required tools (`yo`, `pm2`), 
  * install the GUNBOT x3, 
  * creates some handy aliases,
- * install this generator-gunbot and 
- * start generator-gunbot
+ * install this generator-gunbot
  
 If you want to create a VPS at DigitalOcean, you can use this affiliate link: [get $10 credit at DigitalOcean](https://m.do.co/c/fade3d3435ba) 
 
@@ -37,6 +40,7 @@ npm install -g generator-gunbot
 To init GUNBOT:
 
 ```bash
+cd /path/to/gunbot
 yo gunbot init
 ```
 

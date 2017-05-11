@@ -16,9 +16,9 @@ logMessage () {
 
 echo ""
 echo " ============================================================"
-echo "                     GUNBOT SETUP"
+echo "                    GUNBOT SETUP started"
 echo ""
-echo "              This will take a few seconds"
+echo "                This will take a few seconds"
 echo ""
 echo " ============================================================"
 echo ""
@@ -69,8 +69,8 @@ logMessage "Add GUNBOT aliases"
 echo "" >> ~/.bashrc
 echo "# GUNBOT ALIASES" >> ~/.bashrc
 echo "alias gcd='cd /opt/gunbot'" >> ~/.bashrc
-echo "alias ginit='yo gunbot init'" >> ~/.bashrc
-echo "alias gadd='yo gunbot add'" >> ~/.bashrc
+echo "alias ginit='gcd && yo gunbot init'" >> ~/.bashrc
+echo "alias gadd='gcd && yo gunbot add'" >> ~/.bashrc
 echo "alias gl='pm2 l'" >> ~/.bashrc
 echo "alias glog='pm2 logs'" >> ~/.bashrc
 echo "alias gstart='pm2 start'" >> ~/.bashrc
@@ -91,11 +91,12 @@ cat > /root/.config/configstore/insight-yo.json << EOM
 EOM
 
 
-#logMessage "Start generator"
-##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#exec yo gunbot init
-
-
-logMessage "Restart bash to take changes effect"
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-exec bash
+echo ""
+echo " ============================================================"
+echo "                   GUNBOT SETUP complete!"
+echo ""
+echo "          Please run this command to init the GUNBOT:"
+echo "                           ginit"
+echo ""
+echo " ============================================================"
+echo ""
