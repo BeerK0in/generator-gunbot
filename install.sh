@@ -75,6 +75,7 @@ echo "alias gl='pm2 l'" >> ~/.bashrc
 echo "alias glog='pm2 logs'" >> ~/.bashrc
 echo "alias gstart='pm2 start'" >> ~/.bashrc
 echo "alias gstop='pm2 stop'" >> ~/.bashrc
+echo "alias gmem='vmstat -s -S M | grep \"free memory\"'" >> ~/.bashrc
 
 
 

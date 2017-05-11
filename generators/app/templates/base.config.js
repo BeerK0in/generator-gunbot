@@ -17,7 +17,7 @@ var config = {
   //---BITTREX
   BITTREX_KEY:'',
   BITTREX_SECRET:'',
-  BITTREX_GAIN: 2, // margin to sell when currency increases its value (example: sell when currency increases 2% of paid value - used only when Bollinger Band are not completely calculated or if you select GAIN strategy)
+  BITTREX_GAIN: <%= gainLevel %>, // margin to sell when currency increases its value (example: sell when currency increases 2% of paid value - used only when Bollinger Band are not completely calculated or if you select GAIN strategy)
   BITTREX_PRICE_METHOD:'vWP',// vWP OR ohlc  "price to buy" definition method
   BITTREX_VWA_1_INTERVAL: 10,// weighted average interval in minutes
   BITTREX_VWA_2_INTERVAL: 120,// weighted average interval in minutes
@@ -29,7 +29,7 @@ var config = {
   KRAKEN_KEY: '',
   KRAKEN_SECRET: '',
 
-  KRAKEN_GAIN: 2, // margin to sell when currency increases its value (example: sell when currency increases 2.5% of paid value - used only when Bollinger Band are not completely calculated or if you select GAIN strategy)
+  KRAKEN_GAIN: <%= gainLevel %>, // margin to sell when currency increases its value (example: sell when currency increases 2.5% of paid value - used only when Bollinger Band are not completely calculated or if you select GAIN strategy)
   KRAKEN_PRICE_METHOD:'vWP',// vWP OR ohlc  "price to buy" definition method
   KRAKEN_VWA_1_INTERVAL: 1,// weighted average interval in minutes
   KRAKEN_VWA_2_INTERVAL: 15,// weighted average interval in minutes
@@ -67,9 +67,9 @@ var config = {
   //   BOT TIMINGS
   //-----------------------------------------------
   API_CALLS_DELAY:777,
-  BOT_SLEEP_DELAY:(1000)*22,// bot cycle delay (koef*sec)
+  BOT_SLEEP_DELAY:(1000)*<%= botSleepDelay %>,// bot cycle delay (koef*sec)
   BOT_MAX_LIFETIME:999999999,// overall bot lifetime(koef*min*hours) If you dont change this, the bot will stop to operate in 24 hours,
-  BOT_ON_FAIL_DELAY:(1000)*10, // bot repeat cycle delay if previous cycle failed  (koef*sec)
+  BOT_ON_FAIL_DELAY:(1000)*<%= botSleepDelay %>, // bot repeat cycle delay if previous cycle failed  (koef*sec)
   //-----------------------------------------------
   // EMAIL
   //-----------------------------------------------
