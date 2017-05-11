@@ -47,15 +47,15 @@ logMessage "Install GUNBOT"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 cd /opt
 wget -q https://github.com/GuntharDeNiro/BTCT/releases/download/${GUNBOT_GITHUB_FOLDER_NAME}/${GUNBOT_GITHUB_FILE_NAME}.zip
-unzip -o -qq ${GUNBOT_GITHUB_FILE_NAME}.zip -d ${GUNBOT_GITHUB_FILE_NAME}
+unzip -o -qq ${GUNBOT_GITHUB_FILE_NAME}.zip -d /opt/${GUNBOT_GITHUB_FILE_NAME}
 
 # creates a symbolic link to the gunbot folder
-rm gunbot
-ln -s ${GUNBOT_GITHUB_FILE_NAME} gunbot
+rm /opt/gunbot > /dev/null 2>&1
+ln -s /opt/${GUNBOT_GITHUB_FILE_NAME} /opt/gunbot
 
 # Install BB patch
 wget -q https://github.com/GuntharDeNiro/BTCT/releases/download/Patch1024/BB.zip
-unzip -o -qq BB.zip -d gunbot/
+unzip -o -qq BB.zip -d /opt/gunbot
 
 # Cleanup
 rm /opt/${GUNBOT_GITHUB_FILE_NAME}.zip /opt/BB.zip
