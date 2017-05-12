@@ -23,19 +23,19 @@ echo ""
 echo " ============================================================"
 echo ""
 
-logMessage "Update the base system"
+logMessage "(1/6) Update the base system"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 apt -qq update > /dev/null 2>&1
 apt -y -qq upgrade > /dev/null 2>&1
 
 
-logMessage "Install nodejs 7.x"
+logMessage "(2/6) Install nodejs 7.x"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 curl -qsL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1
 apt -y -qq install nodejs > /dev/null 2>&1
 
 
-logMessage "Install npm tools"
+logMessage "(3/6) Install npm tools"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 npm install -g pm2 > /dev/null 2>&1
 npm install -g yo > /dev/null 2>&1
@@ -43,11 +43,10 @@ npm install -g generator-gunbot > /dev/null 2>&1
 apt -y -qq install unzip > /dev/null 2>&1
 
 
-logMessage "Install GUNBOT"
+logMessage "(4/6) Install GUNBOT"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-cd /opt
-wget -q https://github.com/GuntharDeNiro/BTCT/releases/download/${GUNBOT_GITHUB_FOLDER_NAME}/${GUNBOT_GITHUB_FILE_NAME}.zip
-unzip -o -qq ${GUNBOT_GITHUB_FILE_NAME}.zip -d /opt/${GUNBOT_GITHUB_FILE_NAME}
+wget -q https://github.com/GuntharDeNiro/BTCT/releases/download/${GUNBOT_GITHUB_FOLDER_NAME}/${GUNBOT_GITHUB_FILE_NAME}.zip -P /opt/
+unzip -o -qq /opt/${GUNBOT_GITHUB_FILE_NAME}.zip -d /opt/
 
 # creates a symbolic link to the gunbot folder
 rm /opt/gunbot > /dev/null 2>&1
@@ -56,11 +55,10 @@ ln -s /opt/${GUNBOT_GITHUB_FILE_NAME} /opt/gunbot
 # Cleanup
 rm /opt/${GUNBOT_GITHUB_FILE_NAME}.zip
 
-cd /opt/gunbot
-chmod +x gunthy-*
+chmod +x /opt/gunbot/gunthy-*
 
 
-logMessage "Add GUNBOT aliases"
+logMessage "(5/6) Add GUNBOT aliases"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 echo "" >> ~/.bashrc
 echo "# GUNBOT ALIASES" >> ~/.bashrc
@@ -75,7 +73,7 @@ echo "alias gsys='vmstat -s -S M | grep \"free memory\" && cat /proc/loadavg'" >
 
 
 
-logMessage "Init generator"
+logMessage "(6/6) Init generator"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Create folder for yeoman.
 mkdir /root/.config/configstore -p
@@ -84,7 +82,7 @@ chmod g+rwx /root
 chmod g+rwx /root/.config
 chmod g+rwx /root/.config/configstore
 chmod g+rwx /root/.pm2
-chmod g+rw /root/.pm2/*
+chmod g+rw /root/.pm2/* > /dev/null 2>&1
 chmod g+rwx /opt/gunbot
 cat > /root/.config/configstore/insight-yo.json << EOM
 {

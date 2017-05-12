@@ -170,7 +170,7 @@ module.exports = class extends Generator {
         when: props => props.buyStrategy === 'STEPGAIN',
         type: 'list',
         name: 'stepgainBuyLevel',
-        message: '[BUYLVL] What BUY LEVEL du you want to use?:',
+        message: '[BUYLVL] What BUY LEVEL do you want to use?:',
         default: defaultValues.stepgainBuyLevel,
         choices: ['1', '2'],
         store: true
@@ -217,7 +217,7 @@ module.exports = class extends Generator {
         when: props => props.sellStrategy === 'STEPGAIN',
         type: 'list',
         name: 'stepgainSellLevel',
-        message: '[SELLLVL] What SELL LEVEL du you want to use?:',
+        message: '[SELLLVL] What SELL LEVEL do you want to use?:',
         default: defaultValues.stepgainSellLevel,
         choices: ['1', '2'],
         store: true
