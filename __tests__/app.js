@@ -7,8 +7,8 @@ const parameters = require('../generators/app/parameters');
 const defaultValues = require('../generators/app/defaultValues.js');
 
 const promptsParamsInit = {
-  apiKey: 'this is the apikey',
-  apiSecret: 'this is the apiSecret',
+  poloniexApiKey: 'this is the poloniexApiKey',
+  poloniexApiSecret: 'this is the poloniexApiSecret',
   btcTradingLimit: '123',
   strategy: 'BB',
   currencies: ['ABC', 'DEF', 'JKL', 'XYZ'],
@@ -17,8 +17,8 @@ const promptsParamsInit = {
 
 const promptsParamsAdd = {
   currencyToAdd: 'MNO',
-  apiKey: 'this is the apikey',
-  apiSecret: 'this is the apiSecret',
+  poloniexApiKey: 'this is the poloniexApiKey',
+  poloniexApiSecret: 'this is the poloniexApiSecret',
   btcTradingLimit: '987',
   strategy: 'GAIN',
   startCurrencyToAdd: true
@@ -35,8 +35,8 @@ describe('generator-gunbot:app init', () => {
       .withOptions({skipInstall: true})
       .withArguments(['init'])
       .withPrompts({
-        apiKey: promptsParamsInit.apiKey,
-        apiSecret: promptsParamsInit.apiSecret,
+        poloniexApiKey: promptsParamsInit.poloniexApiKey,
+        poloniexApiSecret: promptsParamsInit.poloniexApiSecret,
         btcTradingLimit: promptsParamsInit.btcTradingLimit,
         buyStrategy: promptsParamsInit.strategy,
         sellStrategy: promptsParamsInit.strategy,
@@ -96,8 +96,8 @@ describe('generator-gunbot:app add', () => {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withArguments(['add'])
       .withPrompts({
-        apiKey: promptsParamsAdd.apiKey,
-        apiSecret: promptsParamsAdd.apiSecret,
+        poloniexApiKey: promptsParamsAdd.poloniexApiKey,
+        poloniexApiSecret: promptsParamsAdd.poloniexApiSecret,
         btcTradingLimit: promptsParamsAdd.btcTradingLimit,
         currencyToAdd: promptsParamsAdd.currencyToAdd,
         startCurrencyToAdd: promptsParamsAdd.startCurrencyToAdd
