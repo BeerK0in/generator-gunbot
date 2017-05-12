@@ -1,7 +1,7 @@
 {
   "name": "generator-gunbot",
-  "version": "0.1.5",
-  "description": "Setup and manage GUNBOT x3 on Linux",
+  "version": "0.1.6",
+  "description": "Setup and manage GUNBOT 3.2 on Linux",
   "homepage": "https://github.com/BeerK0in/generator-gunbot",
   "author": {
     "name": "BeerK0in",
@@ -38,7 +38,8 @@
   "jest": {
     "testEnvironment": "node",
     "collectCoverage": true,
-    "coverageDirectory": "coverage"
+    "coverageDirectory": "coverage",
+    "timers": "real"
   },
   "scripts": {
     "prepublish": "nsp check",

@@ -1,5 +1,5 @@
 # generator-gunbot [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
-> Setup and manage GUNBOT x3 on Linux.
+> Setup and manage GUNBOT 3.2 on Linux.
 
 If you want to setup a brand new Debian or Ubuntu VPS to run GUNBOT, just log into your new VPS as root and run this install script:
 
@@ -14,8 +14,8 @@ ginit
 That script will 
  * update the system (`apt upgrade`), 
  * install node 7.x, 
- * install required tools (`yo`, `pm2`), 
- * install the GUNBOT x3, 
+ * install required tools (`yo`, `pm2`, `unzip`), 
+ * install the GUNBOT 3.2, 
  * creates some handy aliases,
  * install this generator-gunbot
  
@@ -23,7 +23,7 @@ If you want to create a VPS at DigitalOcean, you can use this affiliate link: [g
 
 ---
 
-> **If you just want to use the generator on any OS with installed GUNBOT x3 Core Edition, read on.**
+> **If you just want to use the generator on any OS with installed GUNBOT 3.2 Core Edition, read on.**
 
 ## Installation
 
@@ -54,7 +54,7 @@ yo gunbot add
 
 This initial version of the generator-gunbot has some limitations:
 
- * Only GUNBOT x3 support
+ * Only GUNBOT 3.2 support
  * Only Poloniex support
  * Only BTC to XXX support
 
