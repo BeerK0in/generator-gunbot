@@ -2,8 +2,8 @@
 
 # Set variables
 # -----------------------------------
-GUNBOT_GITHUB_FOLDER_NAME="x3CoreEditionv3.1"
-GUNBOT_GITHUB_FILE_NAME="GUNBOT_x3_edition_corev3.1b"
+GUNBOT_GITHUB_FOLDER_NAME="Core3.2"
+GUNBOT_GITHUB_FILE_NAME="Gunbot_v3.2_core_allCPU"
 
 
 # Set functions
@@ -16,7 +16,7 @@ logMessage () {
 
 echo ""
 echo " ============================================================"
-echo "                    GUNBOT SETUP started"
+echo "                    GUNBOT 3.2 SETUP started"
 echo ""
 echo "                This will take a few seconds"
 echo ""
@@ -53,15 +53,11 @@ unzip -o -qq ${GUNBOT_GITHUB_FILE_NAME}.zip -d /opt/${GUNBOT_GITHUB_FILE_NAME}
 rm /opt/gunbot > /dev/null 2>&1
 ln -s /opt/${GUNBOT_GITHUB_FILE_NAME} /opt/gunbot
 
-# Install BB patch
-wget -q https://github.com/GuntharDeNiro/BTCT/releases/download/Patch1024/BB.zip
-unzip -o -qq BB.zip -d /opt/gunbot
-
 # Cleanup
-rm /opt/${GUNBOT_GITHUB_FILE_NAME}.zip /opt/BB.zip
+rm /opt/${GUNBOT_GITHUB_FILE_NAME}.zip
 
 cd /opt/gunbot
-chmod +x index.js
+chmod +x gunthy-*
 
 
 logMessage "Add GUNBOT aliases"
@@ -69,13 +65,13 @@ logMessage "Add GUNBOT aliases"
 echo "" >> ~/.bashrc
 echo "# GUNBOT ALIASES" >> ~/.bashrc
 echo "alias gcd='cd /opt/gunbot'" >> ~/.bashrc
-echo "alias ginit='gcd && yo gunbot init'" >> ~/.bashrc
+echo "alias ginit='gcd && yo gunbot init --force'" >> ~/.bashrc
 echo "alias gadd='gcd && yo gunbot add'" >> ~/.bashrc
 echo "alias gl='pm2 l'" >> ~/.bashrc
 echo "alias glog='pm2 logs'" >> ~/.bashrc
 echo "alias gstart='pm2 start'" >> ~/.bashrc
 echo "alias gstop='pm2 stop'" >> ~/.bashrc
-echo "alias gmem='vmstat -s -S M | grep \"free memory\"'" >> ~/.bashrc
+echo "alias gsys='vmstat -s -S M | grep \"free memory\" && cat /proc/loadavg'" >> ~/.bashrc
 
 
 

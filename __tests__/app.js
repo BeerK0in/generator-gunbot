@@ -3,18 +3,16 @@ const path = require('path');
 const assert = require('yeoman-assert');
 const helpers = require('yeoman-test');
 const mockSpawn = require('mock-spawn');
-
-const BOT_SLEEP_DELAY = 30;
+const parameters = require('../generators/app/parameters');
+const defaultValues = require('../generators/app/defaultValues.js');
 
 const promptsParamsInit = {
   apiKey: 'this is the apikey',
   apiSecret: 'this is the apiSecret',
   btcTradingLimit: '123',
   strategy: 'BB',
-  buyLevel: '456',
-  gainLevel: '789',
-  currencies: ['ABC', 'JKL', 'XYZ'],
-  currenciesToStart: ['ABC', 'XYZ']
+  currencies: ['ABC', 'DEF', 'JKL', 'XYZ'],
+  currenciesToStart: ['ABC', 'DEF', 'XYZ']
 };
 
 const promptsParamsAdd = {
@@ -23,16 +21,13 @@ const promptsParamsAdd = {
   apiSecret: 'this is the apiSecret',
   btcTradingLimit: '987',
   strategy: 'GAIN',
-  buyLevel: '654',
-  gainLevel: '321',
   startCurrencyToAdd: true
 };
 
-jest.useRealTimers();
 let mySpawn = mockSpawn();
 
 describe('generator-gunbot:app init', () => {
-  beforeEach(() => {
+  beforeAll(() => {
     mySpawn = mockSpawn();
     require('child_process').spawn = mySpawn;
 
@@ -43,17 +38,34 @@ describe('generator-gunbot:app init', () => {
         apiKey: promptsParamsInit.apiKey,
         apiSecret: promptsParamsInit.apiSecret,
         btcTradingLimit: promptsParamsInit.btcTradingLimit,
-        strategy: promptsParamsInit.strategy,
-        buyLevel: promptsParamsInit.buyLevel,
-        gainLevel: promptsParamsInit.gainLevel,
+        buyStrategy: promptsParamsInit.strategy,
+        sellStrategy: promptsParamsInit.strategy,
         currencies: promptsParamsInit.currencies,
         currenciesToStart: promptsParamsInit.currenciesToStart
       });
   });
+  test('creates files', () => {
+    assert.file([
+      'ALLPAIRS-params.js'
+    ]);
 
-  test('starts pm2', function (done) {
-    // This is bad practice but works for now.
-    setTimeout(function () {
+    for (let currency of promptsParamsInit.currencies) {
+      assert.file([
+        `${parameters.markets.poloniex.name}-BTC_${currency}-config.js`
+      ]);
+    }
+  });
+
+  test('sets the content of the files', () => {
+    assert.fileContent([
+      ['ALLPAIRS-params.js', `BTC_TRADING_LIMIT: ${promptsParamsInit.btcTradingLimit},`],
+      ['ALLPAIRS-params.js', `SELL_STRATEGY: '${promptsParamsInit.strategy}',`],
+      ['ALLPAIRS-params.js', `LOW_BB: ${defaultValues.bbLow},`]
+    ]);
+  });
+
+  test('starts pm2', done => {
+    setTimeout(() => {
       assert.equal(promptsParamsInit.currenciesToStart.length, mySpawn.calls.length);
 
       let index = 0;
@@ -61,55 +73,23 @@ describe('generator-gunbot:app init', () => {
         let spawnCall = mySpawn.calls[index];
         assert.equal('pm2', spawnCall.command);
         assert.deepEqual(['start',
-          './index.js',
+          `./${parameters.gunbotExeName}`,
           '--name',
           `BTC_${currency}`,
           '--',
           `BTC_${currency}`,
-          'poloniex'], spawnCall.args);
+          parameters.markets.poloniex.name], spawnCall.args);
         assert.equal(0, spawnCall.exitCode);
         index++;
       }
 
       done();
-    }, 8000);
-  }, 20000);
-
-  test('creates files', () => {
-    assert.file([
-      'base.config.js',
-      'BTC_ABC-config.js',
-      'BTC_JKL-config.js',
-      'BTC_XYZ-config.js'
-    ]);
-  });
-
-  test('sets the content of the files', () => {
-    assert.fileContent([
-      ['base.config.js', `BTC_TRADING_LIMIT: ${promptsParamsInit.btcTradingLimit},`],
-      ['BTC_ABC-config.js', `BTC_TRADING_LIMIT: ${promptsParamsInit.btcTradingLimit},`],
-      ['BTC_JKL-config.js', `BTC_TRADING_LIMIT: ${promptsParamsInit.btcTradingLimit},`],
-      ['BTC_XYZ-config.js', `BTC_TRADING_LIMIT: ${promptsParamsInit.btcTradingLimit},`],
-
-      ['base.config.js', `SELL_STRATEGY: '${promptsParamsInit.strategy}',`],
-      ['BTC_ABC-config.js', `SELL_STRATEGY: '${promptsParamsInit.strategy}',`],
-      ['BTC_JKL-config.js', `SELL_STRATEGY: '${promptsParamsInit.strategy}',`],
-      ['BTC_XYZ-config.js', `SELL_STRATEGY: '${promptsParamsInit.strategy}',`]
-    ]);
-  });
-
-  test('increases BOT_SLEEP_DELAY for each file by one', () => {
-    assert.fileContent([
-      ['base.config.js', `BOT_SLEEP_DELAY:(1000)*${BOT_SLEEP_DELAY},`],
-      ['BTC_ABC-config.js', `BOT_SLEEP_DELAY:(1000)*${BOT_SLEEP_DELAY + 1},`],
-      ['BTC_JKL-config.js', `BOT_SLEEP_DELAY:(1000)*${BOT_SLEEP_DELAY + 2},`],
-      ['BTC_XYZ-config.js', `BOT_SLEEP_DELAY:(1000)*${BOT_SLEEP_DELAY + 3},`]
-    ]);
-  });
+    }, promptsParamsInit.currenciesToStart.length * parameters.timeoutBetweenGunbotStarts * 1.1);
+  }, promptsParamsInit.currenciesToStart.length * parameters.timeoutBetweenGunbotStarts * 1.2);
 });
 
 describe('generator-gunbot:app add', () => {
-  beforeEach(() => {
+  beforeAll(() => {
     mySpawn = mockSpawn();
     require('child_process').spawn = mySpawn;
 
@@ -119,9 +99,6 @@ describe('generator-gunbot:app add', () => {
         apiKey: promptsParamsAdd.apiKey,
         apiSecret: promptsParamsAdd.apiSecret,
         btcTradingLimit: promptsParamsAdd.btcTradingLimit,
-        strategy: promptsParamsAdd.strategy,
-        buyLevel: promptsParamsAdd.buyLevel,
-        gainLevel: promptsParamsAdd.gainLevel,
         currencyToAdd: promptsParamsAdd.currencyToAdd,
         startCurrencyToAdd: promptsParamsAdd.startCurrencyToAdd
       });
@@ -129,22 +106,25 @@ describe('generator-gunbot:app add', () => {
 
   test('creates files', () => {
     assert.file([
-      `BTC_${promptsParamsAdd.currencyToAdd}-config.js`
+      `${parameters.markets.poloniex.name}-BTC_${promptsParamsAdd.currencyToAdd}-config.js`
     ]);
 
     assert.noFile([
-      'base-config.js',
-      'BTC_ABC-config.js',
-      'BTC_JKL-config.js',
-      'BTC_XYZ-config.js'
+      'ALLPAIRS-params.js'
     ]);
+
+    for (let currency of promptsParamsInit.currencies) {
+      assert.noFile([
+        `${parameters.markets.poloniex.name}-BTC_${currency}-config.js`
+      ]);
+    }
   });
 
-  test('sets the content of the files', () => {
-    assert.fileContent([
-      [`BTC_${promptsParamsAdd.currencyToAdd}-config.js`, `BTC_TRADING_LIMIT: ${promptsParamsAdd.btcTradingLimit},`]
-    ]);
-  });
+  // Test('sets the content of the files', () => {
+  //   assert.fileContent([
+  //     [`poloniex-BTC_${promptsParamsAdd.currencyToAdd}-config.js`, `BTC_TRADING_LIMIT: ${promptsParamsAdd.btcTradingLimit},`]
+  //   ]);
+  // });
 
   test('starts pm2', () => {
     assert.equal(1, mySpawn.calls.length);
@@ -152,12 +132,12 @@ describe('generator-gunbot:app add', () => {
     let firstCall = mySpawn.calls[0];
     assert.equal('pm2', firstCall.command);
     assert.deepEqual(['start',
-      './index.js',
+      `./${parameters.gunbotExeName}`,
       '--name',
       `BTC_${promptsParamsAdd.currencyToAdd}`,
       '--',
       `BTC_${promptsParamsAdd.currencyToAdd}`,
-      'poloniex'], firstCall.args);
+      parameters.markets.poloniex.name], firstCall.args);
     assert.equal(0, firstCall.exitCode);
   }, 20000);
 });
