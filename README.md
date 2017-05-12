@@ -21,6 +21,22 @@ That script will
  
 If you want to create a VPS at DigitalOcean, you can use this affiliate link: [get $10 credit at DigitalOcean](https://m.do.co/c/fade3d3435ba) 
 
+
+**Aliases**
+
+The installer also sets up some aliases to do more with less. :)
+
+- `gcd`: Go to the folder GUNBOT is installed
+- `gadd`: Use the generator to add a new pair _(*)_
+- `gl`: Get a list of all running GUNBOTs
+- `glog [botname or number]`: Shows the log of the selected bot (use `gl` to get name) 
+- `gstop [botname or number]`: Stops a running bot (use `gl` to get name) 
+- `gstart [botname or number]`: Starts a stopped bot (use `gl` to get name) 
+- `gsys`: Show free memory and CPU load
+
+_(*)For now `gadd` will use the same settings as defined in the first run of the generator. A next version will allow you to set specific strategies for new trade pairs._
+
+
 ---
 
 > **If you just want to use the generator on any OS with installed GUNBOT 3.2 Core Edition, read on.**
@@ -49,6 +65,7 @@ To add a new currency to GUNBOT:
 ```bash
 yo gunbot add
 ```
+
 
 ## Limits
 
