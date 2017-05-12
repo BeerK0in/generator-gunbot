@@ -101,8 +101,8 @@ var config = {
   KRAKEN_VWA_2_INTERVAL: 15, // weighted average interval in minutes
 
   //---POLONIEX
-  POLONIEX_KEY: '<%= apiKey %>',
-  POLONIEX_SECRET: '<%= apiSecret %>',
+  POLONIEX_KEY: '<%= poloniexApiKey %>',
+  POLONIEX_SECRET: '<%= poloniexApiSecret %>',
 
   POLONIEX_PRICE_METHOD: 'vwa', // ohlc OR vwa 'price to buy' definition method.
   POLONIEX_VWA_1_INTERVAL: 0.02, // Weighted average interval in hours.

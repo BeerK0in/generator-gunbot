@@ -86,13 +86,13 @@ module.exports = class extends Generator {
       {
         when: () => this.options.action === 'init',
         type: 'input',
-        name: 'apiKey',
+        name: 'poloniexApiKey',
         message: '[POLONIEX_KEY] Your Poloniex API key:',
         store: true
       }, {
         when: () => this.options.action === 'init',
         type: 'password',
-        name: 'apiSecret',
+        name: 'poloniexApiSecret',
         message: '[POLONIEX_SECRET] Your Poloniex API secret:',
         store: true
       }, {
@@ -267,8 +267,8 @@ module.exports = class extends Generator {
       this.fs.copyTpl(
         this.templatePath('ALLPAIRS-params.js'),
         this.destinationPath('ALLPAIRS-params.js'), {
-          apiKey: this.props.apiKey,
-          apiSecret: this.props.apiSecret,
+          poloniexApiKey: this.props.poloniexApiKey,
+          poloniexApiSecret: this.props.poloniexApiSecret,
           btcTradingLimit: this.props.btcTradingLimit || defaultValues.btcTradingLimit,
           buyStrategy: this.props.buyStrategy || defaultValues.buyStrategy,
           sellStrategy: this.props.sellStrategy || defaultValues.sellStrategy,
