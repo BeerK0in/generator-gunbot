@@ -56,6 +56,12 @@ ln -s /opt/${GUNBOT_GITHUB_FILE_NAME} /opt/gunbot
 rm /opt/${GUNBOT_GITHUB_FILE_NAME}.zip
 
 chmod +x /opt/gunbot/gunthy-*
+mkdir /opt/gunbot/originalConfigFiles -p
+mv /opt/gunbot/ALLPAIRS-params.js /opt/gunbot/originalConfigFiles/ALLPAIRS-params.js > /dev/null 2>&1
+mv /opt/gunbot/poloniex-BTC_BELA-config.js /opt/gunbot/originalConfigFiles/poloniex-BTC_BELA-config.js > /dev/null 2>&1
+mv /opt/gunbot/kraken-BTC_DASH-config.js /opt/gunbot/originalConfigFiles/kraken-BTC_DASH-config.js > /dev/null 2>&1
+mv /opt/gunbot/bittrex-BTC_ARK-config.js /opt/gunbot/originalConfigFiles/bittrex-BTC_ARK-config.js > /dev/null 2>&1
+
 
 
 logMessage "(5/6) Add GUNBOT aliases"
@@ -63,7 +69,7 @@ logMessage "(5/6) Add GUNBOT aliases"
 echo "" >> ~/.bashrc
 echo "# GUNBOT ALIASES" >> ~/.bashrc
 echo "alias gcd='cd /opt/gunbot'" >> ~/.bashrc
-echo "alias ginit='gcd && yo gunbot init --force'" >> ~/.bashrc
+echo "alias ginit='gcd && yo gunbot init'" >> ~/.bashrc
 echo "alias gadd='gcd && yo gunbot add'" >> ~/.bashrc
 echo "alias gl='pm2 l'" >> ~/.bashrc
 echo "alias glog='pm2 logs'" >> ~/.bashrc
@@ -76,20 +82,26 @@ echo "alias gsys='vmstat -s -S M | grep \"free memory\" && cat /proc/loadavg'" >
 logMessage "(6/6) Init generator"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Create folder for yeoman.
-mkdir /root/.config/configstore -p
-mkdir /root/.pm2 -p
 chmod g+rwx /root
-chmod g+rwx /root/.config
-chmod g+rwx /root/.config/configstore
-chmod g+rwx /root/.pm2
-chmod g+rw /root/.pm2/* > /dev/null 2>&1
 chmod g+rwx /opt/gunbot
+
+# Yeoman write rights.
+mkdir /root/.config/configstore -p
 cat > /root/.config/configstore/insight-yo.json << EOM
 {
         "clientId": 1337,
         "optOut": true
 }
 EOM
+chmod g+rwx /root/.config
+chmod g+rwx /root/.config/configstore
+chmod g+rw /root/.config/configstore/*
+
+# pm2 write rights.
+mkdir /root/.pm2 -p
+echo "1337" > /root/.pm2/touch
+chmod g+rwx /root/.pm2
+chmod g+rw /root/.pm2/*
 
 
 echo ""
