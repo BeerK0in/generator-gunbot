@@ -54,7 +54,7 @@ ln -s /opt/${GUNBOT_GITHUB_FILE_NAME} /opt/gunbot
 
 # Install patch 2019
 wget -q https://github.com/GuntharDeNiro/BTCT/releases/download/Patch2019/Patch_Fixes_2019_all_CPU.zip -P /opt/
-unzip -o -qq Patch_Fixes_2019_all_CPU.zip -d /opt/gunbot
+unzip -o -qq /opt/Patch_Fixes_2019_all_CPU.zip -d /opt/gunbot
 
 # Cleanup
 rm /opt/${GUNBOT_GITHUB_FILE_NAME}.zip /opt/Patch_Fixes_2019_all_CPU.zip
