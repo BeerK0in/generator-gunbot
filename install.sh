@@ -54,11 +54,18 @@ ln -s /opt/${GUNBOT_GITHUB_FILE_NAME} /opt/gunbot
 
 # Install patch 2019
 wget -q https://github.com/GuntharDeNiro/BTCT/releases/download/Patch2019/Patch_Fixes_2019_all_CPU.zip -P /opt/
-unzip -o -qq Patch_Fixes_2019_all_CPU.zip -d /opt/gunbot
+unzip -o -qq /opt/Patch_Fixes_2019_all_CPU.zip -d /opt/gunbot
+
+# Install patch 2020
+wget -q https://github.com/GuntharDeNiro/BTCT/releases/download/patch2020/Patch2020_v3.2_Core_allCPU.zip -P /opt/
+unzip -o -qq /opt/Patch2020_v3.2_Core_allCPU.zip -d /opt/gunbot
 
 # Cleanup
-rm /opt/${GUNBOT_GITHUB_FILE_NAME}.zip /opt/Patch_Fixes_2019_all_CPU.zip
+rm /opt/${GUNBOT_GITHUB_FILE_NAME}.zip 
+rm /opt/Patch_Fixes_2019_all_CPU.zip
+rm /opt/Patch2020_v3.2_Core_allCPU.zip
 
+# Set rights
 chmod +x /opt/gunbot/gunthy-*
 mkdir /opt/gunbot/originalConfigFiles -p
 mv /opt/gunbot/ALLPAIRS-params.js /opt/gunbot/originalConfigFiles/ALLPAIRS-params.js > /dev/null 2>&1
