@@ -60,6 +60,14 @@ unzip -o -qq /opt/Patch_Fixes_2019_all_CPU.zip -d /opt/gunbot
 wget -q https://github.com/GuntharDeNiro/BTCT/releases/download/patch2020/Patch2020_v3.2_Core_allCPU.zip -P /opt/
 unzip -o -qq /opt/Patch2020_v3.2_Core_allCPU.zip -d /opt/gunbot
 
+# Install patch 2021
+wget -q https://github.com/GuntharDeNiro/BTCT/releases/download/patch2021/Patch2021_Gunbot_v3.2_core_allCPU.zip -P /opt/
+unzip -o -qq /opt/Patch2021_Gunbot_v3.2_core_allCPU.zip -d /opt/gunbot
+
+# Install patch 2022
+wget -q https://github.com/GuntharDeNiro/BTCT/releases/download/Patch2022/Patch2022_Gunbot_v3.2_core_allCPU.zip -P /opt/
+unzip -o -qq /opt/Patch2022_Gunbot_v3.2_core_allCPU.zip -d /opt/gunbot
+
 # Cleanup
 rm /opt/${GUNBOT_GITHUB_FILE_NAME}.zip 
 rm /opt/Patch_Fixes_2019_all_CPU.zip
