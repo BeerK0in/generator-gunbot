@@ -35,12 +35,10 @@ curl -qsL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1
 apt -y -qq install nodejs > /dev/null 2>&1
 
 
-logMessage "(3/6) Install npm tools"
+logMessage "(3/6) Install tools"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-npm install -g pm2 > /dev/null 2>&1
-npm install -g yo > /dev/null 2>&1
-npm install -g generator-gunbot > /dev/null 2>&1
-apt -y -qq install unzip > /dev/null 2>&1
+apt -y -qq install unzip python-minimal build-essential > /dev/null 2>&1
+npm install -g pm2 yo generator-gunbot gunbut-monitor > /dev/null 2>&1
 
 
 logMessage "(4/6) Install GUNBOT"
@@ -72,6 +70,8 @@ unzip -o -qq /opt/Patch2022_Gunbot_v3.2_core_allCPU.zip -d /opt/gunbot
 rm /opt/${GUNBOT_GITHUB_FILE_NAME}.zip 
 rm /opt/Patch_Fixes_2019_all_CPU.zip
 rm /opt/Patch2020_v3.2_Core_allCPU.zip
+rm /opt/Patch2021_Gunbot_v3.2_core_allCPU.zip
+rm /opt/Patch2022_Gunbot_v3.2_core_allCPU.zip
 
 # Set rights
 chmod +x /opt/gunbot/gunthy-*
