@@ -113,8 +113,8 @@ var config = {
   //   BOT TIMINGS
   //-----------------------------------------------
   // All timings are (milliseconds) * seconds
-  BOT_SLEEP_DELAY: (1000) * 100, // Bot cycle delay. Time the bot sleeps between cycles.
-  BOT_ON_FAIL_DELAY: (1000) * 50, // Bot repeat cycle delay if previous cycle failed.
+  BOT_SLEEP_DELAY: (1000) * 111, // Bot cycle delay. Time the bot sleeps between cycles.
+  BOT_ON_FAIL_DELAY: (1000) * 66, // Bot repeat cycle delay if previous cycle failed.
   BOT_MAX_LIFETIME: 999999999, // Overall bot lifetime. 999999999 = 'never end'.
   API_CALLS_DELAY: 777,
 
