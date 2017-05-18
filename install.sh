@@ -38,7 +38,7 @@ apt -y -qq install nodejs > /dev/null 2>&1
 logMessage "(3/6) Install tools"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 apt -y -qq install unzip python-minimal build-essential > /dev/null 2>&1
-npm install -g pm2 yo generator-gunbot gunbut-monitor > /dev/null 2>&1
+npm install -g pm2 yo generator-gunbot gunbot-monitor > /dev/null 2>&1
 
 
 logMessage "(4/6) Install GUNBOT"
@@ -67,7 +67,7 @@ wget -q https://github.com/GuntharDeNiro/BTCT/releases/download/Patch2022/Patch2
 unzip -o -qq /opt/Patch2022_Gunbot_v3.2_core_allCPU.zip -d /opt/gunbot
 
 # Cleanup
-rm /opt/${GUNBOT_GITHUB_FILE_NAME}.zip 
+rm /opt/${GUNBOT_GITHUB_FILE_NAME}.zip
 rm /opt/Patch_Fixes_2019_all_CPU.zip
 rm /opt/Patch2020_v3.2_Core_allCPU.zip
 rm /opt/Patch2021_Gunbot_v3.2_core_allCPU.zip
