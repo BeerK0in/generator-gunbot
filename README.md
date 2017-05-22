@@ -32,10 +32,29 @@ The installer also sets up some aliases to do more with less. :)
 - `glog [botname or number]`: Shows the log of the selected bot (use `gl` to get name) 
 - `gstop [botname or number]`: Stops a running bot (use `gl` to get name) 
 - `gstart [botname or number]`: Starts a stopped bot (use `gl` to get name) 
-- `gsys`: Show free memory and CPU load
 
 _(*)For now `gadd` will use the same settings as defined in the first run of the generator. A next version will allow you to set specific strategies for new trade pairs._
 
+
+**Updates**
+
+To update follow these steps:
+
+1. Login to your server.
+2. Run this update script
+```bash
+curl -qsL https://raw.githubusercontent.com/BeerK0in/generator-gunbot/master/update.sh | bash --
+```
+3. Run `ginit` again to start all bots with delay
+```bash
+ginit
+```
+4. Press ENTER for every question (it will use your last settings)
+5. Wait till all bots are started.
+6. _[optional]_ If you have changed some configs manually, please copy them from the backup folder back into the gunbot folder:
+```bash
+cp /opt/gunbot-backup-<NUMBER>/poloniex-BTC_XXX-config.js /opt/gunbot/
+```
 
 ---
 
