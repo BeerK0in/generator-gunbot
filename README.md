@@ -38,7 +38,7 @@ _(*)For now `gadd` will use the same settings as defined in the first run of the
 
 **Updates**
 
-To update follow these steps:
+To update follow these steps:cdg  
 
 1. Login to your server.
 2. Run this update script
@@ -50,10 +50,18 @@ curl -qsL https://raw.githubusercontent.com/BeerK0in/generator-gunbot/master/upd
 ginit
 ```
 4. Press ENTER for every question (it will use your last settings)
-5. Wait till all bots are started.
-6. _[optional]_ If you have changed some configs manually, please copy them from the backup folder back into the gunbot folder:
+5. _[optional]_ Press ENTER on the conflict of ALLPAIRS _(*)_
+6. Wait till all bots are started.
+7. _[optional]_ If you have changed some configs manually, please copy them from the backup folder back into the gunbot folder:
 ```bash
 cp /opt/gunbot-backup-<NUMBER>/poloniex-BTC_XXX-config.js /opt/gunbot/
+```
+
+_(*)_ The conflict could happen if you hav an older version of the generator, because the default settings have changed a bit.
+In that case it is very likely you see this question. Just press ENTER:
+```
+conflict ALLPAIRS-params.js
+? Overwrite ALLPAIRS-params.js? (Ynaxdh)
 ```
 
 ---
