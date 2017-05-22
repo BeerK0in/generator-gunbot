@@ -38,7 +38,7 @@ _(*)For now `gadd` will use the same settings as defined in the first run of the
 
 **Updates**
 
-To update follow these steps:cdg  
+To update follow these steps:
 
 1. Login to your server.
 2. Run this update script
