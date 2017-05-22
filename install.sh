@@ -2,8 +2,8 @@
 
 # Set variables
 # -----------------------------------
-GUNBOT_GITHUB_FOLDER_NAME="Core3.2"
-GUNBOT_GITHUB_FILE_NAME="Gunbot_v3.2_core_allCPU"
+GUNBOT_GITHUB_FOLDER_NAME="v3.2GUI"
+GUNBOT_GITHUB_FILE_NAME="GUNBOT_v3.2_GUI_edition_all_CPU"
 
 
 # Set functions
@@ -44,42 +44,24 @@ npm install -g pm2 yo generator-gunbot gunbot-monitor > /dev/null 2>&1
 logMessage "(4/6) Install GUNBOT"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wget -q https://github.com/GuntharDeNiro/BTCT/releases/download/${GUNBOT_GITHUB_FOLDER_NAME}/${GUNBOT_GITHUB_FILE_NAME}.zip -P /opt/
-unzip -o -qq /opt/${GUNBOT_GITHUB_FILE_NAME}.zip -d /opt/
+unzip -o -qq /opt/${GUNBOT_GITHUB_FILE_NAME}.zip -d /opt/unzip-tmp
 
-# creates a symbolic link to the gunbot folder
+# create folder for the current version.
+mkdir /opt/${GUNBOT_GITHUB_FILE_NAME} -p
+
+# Copy only the executables.
+cp /opt/unzip-tmp/gunthy-* /opt/${GUNBOT_GITHUB_FILE_NAME}
+
+# creates a symbolic link to the gunbot folder.
 rm /opt/gunbot > /dev/null 2>&1
 ln -s /opt/${GUNBOT_GITHUB_FILE_NAME} /opt/gunbot
 
-# Install patch 2019
-wget -q https://github.com/GuntharDeNiro/BTCT/releases/download/Patch2019/Patch_Fixes_2019_all_CPU.zip -P /opt/
-unzip -o -qq /opt/Patch_Fixes_2019_all_CPU.zip -d /opt/gunbot
-
-# Install patch 2020
-wget -q https://github.com/GuntharDeNiro/BTCT/releases/download/patch2020/Patch2020_v3.2_Core_allCPU.zip -P /opt/
-unzip -o -qq /opt/Patch2020_v3.2_Core_allCPU.zip -d /opt/gunbot
-
-# Install patch 2021
-wget -q https://github.com/GuntharDeNiro/BTCT/releases/download/patch2021/Patch2021_Gunbot_v3.2_core_allCPU.zip -P /opt/
-unzip -o -qq /opt/Patch2021_Gunbot_v3.2_core_allCPU.zip -d /opt/gunbot
-
-# Install patch 2022
-wget -q https://github.com/GuntharDeNiro/BTCT/releases/download/Patch2022/Patch2022_Gunbot_v3.2_core_allCPU.zip -P /opt/
-unzip -o -qq /opt/Patch2022_Gunbot_v3.2_core_allCPU.zip -d /opt/gunbot
-
 # Cleanup
 rm /opt/${GUNBOT_GITHUB_FILE_NAME}.zip
-rm /opt/Patch_Fixes_2019_all_CPU.zip
-rm /opt/Patch2020_v3.2_Core_allCPU.zip
-rm /opt/Patch2021_Gunbot_v3.2_core_allCPU.zip
-rm /opt/Patch2022_Gunbot_v3.2_core_allCPU.zip
+rm -R /opt/unzip-tmp
 
 # Set rights
 chmod +x /opt/gunbot/gunthy-*
-mkdir /opt/gunbot/originalConfigFiles -p
-mv /opt/gunbot/ALLPAIRS-params.js /opt/gunbot/originalConfigFiles/ALLPAIRS-params.js > /dev/null 2>&1
-mv /opt/gunbot/poloniex-BTC_BELA-config.js /opt/gunbot/originalConfigFiles/poloniex-BTC_BELA-config.js > /dev/null 2>&1
-mv /opt/gunbot/kraken-BTC_DASH-config.js /opt/gunbot/originalConfigFiles/kraken-BTC_DASH-config.js > /dev/null 2>&1
-mv /opt/gunbot/bittrex-BTC_ARK-config.js /opt/gunbot/originalConfigFiles/bittrex-BTC_ARK-config.js > /dev/null 2>&1
 
 
 
@@ -94,7 +76,6 @@ echo "alias gl='pm2 l'" >> ~/.bashrc
 echo "alias glog='pm2 logs'" >> ~/.bashrc
 echo "alias gstart='pm2 start'" >> ~/.bashrc
 echo "alias gstop='pm2 stop'" >> ~/.bashrc
-echo "alias gsys='vmstat -s -S M | grep \"free memory\" && cat /proc/loadavg'" >> ~/.bashrc
 
 
 
