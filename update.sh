@@ -36,7 +36,7 @@ cp /opt/gunbot/ /opt/gunbot-backup-${TIMESTAMP}/ -r > /dev/null 2>&1
 
 logMessage "(3/5) Update tools"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-apt -y -qq install unzip python-minimal build-essential > /dev/null 2>&1
+apt -y -qq install unzip > /dev/null 2>&1
 npm install -g pm2 yo generator-gunbot gunbot-monitor > /dev/null 2>&1
 
 
