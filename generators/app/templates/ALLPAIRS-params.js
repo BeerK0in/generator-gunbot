@@ -62,21 +62,13 @@ var config = {
   PINGPONG_SELL: <%= pingpongSellPrice %>, // [DEFAULT: 0.000002] Sell price.
 
   // STEPGAIN
-  // Example:
-  // if you have BUYLVL1 to 3 and BUYLVL2 to 5,
-  // - set BUYLVL to 2 if you want to explore from to 5% to infinite,
-  // - or set BUYLVL to 1 if you want to explore from 3% to infinite.
-  BUYLVL1: <%= stepgainBuyLevelOne %>, // [DEFAULT: 3] Percent. Buy if price is x% below the lower ema value. If BUYLVL is 1.
-  BUYLVL2: <%= stepgainBuyLevelTwo %>, // [DEFAULT: 12] Percent. Buy if price is x% below the lower ema value. If BUYLVL is 2.
+  BUYLVL1: <%= stepgainBuyLevelOne %>, // [DEFAULT: 2] Percent. Buy if price is x% below the lower ema value. But try also to reach BUYLVL2
+  BUYLVL2: <%= stepgainBuyLevelTwo %>, // [DEFAULT: 5] Percent. Buy if price is x% below the lower ema value. But try also to reach BUYLVL3
+  BUYLVL3: <%= stepgainBuyLevelThree %>, // [DEFAULT: 41] Percent. Buy if price is x% below the lower ema value or even less.
 
-  SELLLVL1: <%= stepgainSellLevelOne %>, // [DEFAULT: 2] Percent. Sell if price is x% above bought price. If SELLLVL is 1.
-  SELLLVL2: <%= stepgainSellLevelTwo %>, // [DEFAULT: 70] Percent. Sell if price is x% above bought price. IF SELLLVL is 2.
-
-  BUYLVL: <%= stepgainBuyLevel %>, // [DEFAULT: 2] What BUY LEVEL du you want to use?
-  SELLLVL: <%= stepgainSellLevel %>, // [DEFAULT: 2] What BUY LEVEL du you want to use?
-
-
-
+  SELLLVL1: <%= stepgainSellLevelOne %>, // [DEFAULT: 2] Percent. Sell if price is x% above bought price. But try also to reach SELLLVL2
+  SELLLVL2: <%= stepgainSellLevelTwo %>, // [DEFAULT: 5] Percent. Sell if price is x% above bought price. But try also to reach SELLLVL3
+  SELLLVL3: <%= stepgainSellLevelThree %>, // [DEFAULT: 70] Percent. Sell if price is x% above bought price or even more.
 
   //-----------------------------------------------
   //   MARKETS

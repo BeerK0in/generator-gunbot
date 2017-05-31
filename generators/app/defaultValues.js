@@ -14,11 +14,10 @@ module.exports = {
   pingpongSellPrice: 0.000002,
 
   stepgainBuyLevelOne: 3,
-  stepgainBuyLevelTwo: 12,
+  stepgainBuyLevelTwo: 5,
+  stepgainBuyLevelThree: 41,
 
   stepgainSellLevelOne: 2,
-  stepgainSellLevelTwo: 70,
-
-  stepgainBuyLevel: '2',
-  stepgainSellLevel: '2'
+  stepgainSellLevelTwo: 5,
+  stepgainSellLevelThree: 70
 };
