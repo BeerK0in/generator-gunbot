@@ -4,10 +4,12 @@
 If you want to setup a brand new Debian or Ubuntu VPS to run GUNBOT, just log into your new VPS as root and run this install script:
 
 ```bash
+cd
 curl -qsL https://raw.githubusercontent.com/BeerK0in/generator-gunbot/master/install.sh | bash -- && exec bash
 ```
 After the setup run:
 ```bash
+gcd
 ginit
 ```
 
@@ -43,10 +45,12 @@ To update follow these steps:
 1. Login to your server.
 2. Run this update script
 ```bash
+cd
 curl -qsL https://raw.githubusercontent.com/BeerK0in/generator-gunbot/master/update.sh | bash --
 ```
 3. Run `ginit` again to start all bots with delay
 ```bash
+gcd
 ginit
 ```
 4. Press ENTER for every question (it will use your last settings)
