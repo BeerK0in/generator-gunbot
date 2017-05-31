@@ -168,11 +168,10 @@ module.exports = class extends Generator {
         store: true
       }, {
         when: props => props.buyStrategy === 'STEPGAIN',
-        type: 'list',
-        name: 'stepgainBuyLevel',
-        message: '[BUYLVL] What BUY LEVEL do you want to use?:',
-        default: defaultValues.stepgainBuyLevel,
-        choices: ['1', '2'],
+        type: 'input',
+        name: 'stepgainBuyLevelThree',
+        message: '[BUYLVL3] Percent. Buy when the price drops by x% or lower:',
+        default: defaultValues.stepgainBuyLevelThree,
         store: true
       },
 
@@ -215,11 +214,10 @@ module.exports = class extends Generator {
         store: true
       }, {
         when: props => props.sellStrategy === 'STEPGAIN',
-        type: 'list',
-        name: 'stepgainSellLevel',
-        message: '[SELLLVL] What SELL LEVEL do you want to use?:',
-        default: defaultValues.stepgainSellLevel,
-        choices: ['1', '2'],
+        type: 'input',
+        name: 'stepgainSellLevelThree',
+        message: '[SELLLVL3] Percent. Sell if price is x% above bought price:',
+        default: defaultValues.stepgainSellLevelThree,
         store: true
       },
 
@@ -280,10 +278,10 @@ module.exports = class extends Generator {
           pingpongSellPrice: this.props.pingpongSellPrice || defaultValues.pingpongSellPrice,
           stepgainBuyLevelOne: this.props.stepgainBuyLevelOne || defaultValues.stepgainBuyLevelOne,
           stepgainBuyLevelTwo: this.props.stepgainBuyLevelTwo || defaultValues.stepgainBuyLevelTwo,
+          stepgainBuyLevelThree: this.props.stepgainBuyLevelThree || defaultValues.stepgainBuyLevelThree,
           stepgainSellLevelOne: this.props.stepgainSellLevelOne || defaultValues.stepgainSellLevelOne,
           stepgainSellLevelTwo: this.props.stepgainSellLevelTwo || defaultValues.stepgainSellLevelTwo,
-          stepgainBuyLevel: this.props.stepgainBuyLevel || defaultValues.stepgainBuyLevel,
-          stepgainSellLevel: this.props.stepgainSellLevel || defaultValues.stepgainSellLevel
+          stepgainSellLevelThree: this.props.stepgainSellLevelThree || defaultValues.stepgainSellLevelThree
         }
       );
 

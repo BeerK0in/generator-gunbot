@@ -2,8 +2,8 @@
 
 # Set variables
 # -----------------------------------
-GUNBOT_GITHUB_FOLDER_NAME="v3.2GUI"
-GUNBOT_GITHUB_FILE_NAME="GUNBOT_v3.2_GUI_edition_all_CPU"
+GUNBOT_GITHUB_FOLDER_NAME="Gunbot3.3SMART"
+GUNBOT_GITHUB_FILE_NAME="GUNBOT_V3.3_ALL_OS"
 
 
 # Set functions
@@ -16,7 +16,7 @@ logMessage () {
 
 echo ""
 echo " ============================================================"
-echo "                    GUNBOT 3.2 SETUP started"
+echo "                    GUNBOT 3.3 SETUP started"
 echo ""
 echo "                This will take a few seconds"
 echo ""
