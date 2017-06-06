@@ -36,8 +36,7 @@ cp /opt/gunbot/ /opt/gunbot-backup-${TIMESTAMP}/ -r > /dev/null 2>&1
 
 logMessage "(3/4) Update tools"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-apt -y -qq install unzip > /dev/null 2>&1
-npm install -g pm2 yo generator-gunbot gunbot-monitor > /dev/null 2>&1
+npm install -g generator-gunbot > /dev/null 2>&1
 
 
 logMessage "(4/4) Update GUNBOT"
@@ -46,12 +45,15 @@ logMessage "(4/4) Update GUNBOT"
 wget -q https://github.com/GuntharDeNiro/BTCT/releases/download/${GUNBOT_GITHUB_FOLDER_NAME}/${GUNBOT_GITHUB_FILE_NAME}.zip -P /opt/
 unzip -o -qq /opt/${GUNBOT_GITHUB_FILE_NAME}.zip -d /opt/unzip-tmp
 
+# Remove all executables.
+rm -f /opt/gunbot/gunthy-*
+
 # Copy only the executables.
 cp /opt/unzip-tmp/gunthy-* /opt/gunbot
 
 # Cleanup
 rm /opt/${GUNBOT_GITHUB_FILE_NAME}.zip
-rm -R /opt/unzip-tmp
+rm -Rf /opt/unzip-tmp
 
 # Set rights
 chmod +x /opt/gunbot/gunthy-*
