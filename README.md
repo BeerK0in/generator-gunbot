@@ -1,13 +1,15 @@
 # generator-gunbot [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
-> Setup and manage GUNBOT 3.2 on Linux.
+> Setup and manage GUNBOT 3.3 on Linux.
 
 If you want to setup a brand new Debian or Ubuntu VPS to run GUNBOT, just log into your new VPS as root and run this install script:
 
 ```bash
+cd
 curl -qsL https://raw.githubusercontent.com/BeerK0in/generator-gunbot/master/install.sh | bash -- && exec bash
 ```
 After the setup run:
 ```bash
+gcd
 ginit
 ```
 
@@ -15,7 +17,7 @@ That script will
  * update the system (`apt upgrade`), 
  * install node 7.x, 
  * install required tools (`yo`, `pm2`, `unzip`), 
- * install the GUNBOT 3.2, 
+ * install the GUNBOT 3.3, 
  * creates some handy aliases,
  * install this generator-gunbot
  
@@ -43,10 +45,12 @@ To update follow these steps:
 1. Login to your server.
 2. Run this update script
 ```bash
+cd
 curl -qsL https://raw.githubusercontent.com/BeerK0in/generator-gunbot/master/update.sh | bash --
 ```
 3. Run `ginit` again to start all bots with delay
 ```bash
+gcd
 ginit
 ```
 4. Press ENTER for every question (it will use your last settings)
@@ -66,7 +70,7 @@ conflict ALLPAIRS-params.js
 
 ---
 
-> **If you just want to use the generator on any OS with installed GUNBOT 3.2 Core Edition, read on.**
+> **If you just want to use the generator on any OS with installed GUNBOT 3.3 Core Edition, read on.**
 
 ## Installation
 
@@ -98,7 +102,7 @@ yo gunbot add
 
 This initial version of the generator-gunbot has some limitations:
 
- * Only GUNBOT 3.2 support
+ * Only GUNBOT 3.3 support
  * Only Poloniex support
  * Only BTC to XXX support
 
