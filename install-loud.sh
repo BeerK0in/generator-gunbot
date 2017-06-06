@@ -20,31 +20,33 @@ echo "                    GUNBOT 3.3.2 SETUP started"
 echo ""
 echo "                This will take a few seconds"
 echo ""
+echo "                DEBUG VERSION WITH A LOT OF OUTPUT"
+echo ""
 echo " ============================================================"
 echo ""
 
 logMessage "(1/6) Update the base system"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-apt -qq update > /dev/null 2>&1
-apt -y -qq upgrade > /dev/null 2>&1
+apt update
+apt -y upgrade
 
 
 logMessage "(2/6) Install nodejs 7.x"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-curl -qsL https://deb.nodesource.com/setup_7.x | bash - > /dev/null 2>&1
-apt -y -qq install nodejs > /dev/null 2>&1
+curl -sL https://deb.nodesource.com/setup_7.x | bash -
+apt -y install nodejs
 
 
 logMessage "(3/6) Install tools"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-apt -y -qq install unzip > /dev/null 2>&1
-npm install -g pm2 yo generator-gunbot gunbot-monitor > /dev/null 2>&1
+apt -y install unzip
+npm install -g pm2 yo generator-gunbot gunbot-monitor
 
 
 logMessage "(4/6) Install GUNBOT"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-wget -q https://github.com/GuntharDeNiro/BTCT/releases/download/${GUNBOT_GITHUB_FOLDER_NAME}/${GUNBOT_GITHUB_FILE_NAME}.zip -P /opt/
-unzip -o -qq /opt/${GUNBOT_GITHUB_FILE_NAME}.zip -d /opt/unzip-tmp
+wget https://github.com/GuntharDeNiro/BTCT/releases/download/${GUNBOT_GITHUB_FOLDER_NAME}/${GUNBOT_GITHUB_FILE_NAME}.zip -P /opt/
+unzip -o /opt/${GUNBOT_GITHUB_FILE_NAME}.zip -d /opt/unzip-tmp
 
 # create folder for the current version.
 mkdir /opt/${GUNBOT_GITHUB_FILE_NAME} -p
@@ -53,7 +55,7 @@ mkdir /opt/${GUNBOT_GITHUB_FILE_NAME} -p
 cp /opt/unzip-tmp/gunthy-* /opt/${GUNBOT_GITHUB_FILE_NAME}
 
 # creates a symbolic link to the gunbot folder.
-rm /opt/gunbot > /dev/null 2>&1
+rm /opt/gunbot > /dev/null
 ln -s /opt/${GUNBOT_GITHUB_FILE_NAME} /opt/gunbot
 
 # Cleanup

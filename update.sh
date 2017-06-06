@@ -2,10 +2,10 @@
 
 # Set variables
 # -----------------------------------
-GUNBOT_GITHUB_FOLDER_NAME="Gunbot3.3SMART"
-GUNBOT_GITHUB_FILE_NAME="GUNBOT_V3.3_ALL_OS"
+GUNBOT_GITHUB_FOLDER_NAME="Gunbot3.3.2"
+GUNBOT_GITHUB_FILE_NAME="GUNBOT_v3.3.2_Poloniex_Bittrex_Patch"
 TIMESTAMP="$(date +"%s")"
-LATEST_PATCH="v3.3GUI"
+LATEST_PATCH="v3.3.2 Poloniex Bittrex"
 
 # Set functions
 # -----------------------------------
@@ -17,7 +17,7 @@ logMessage () {
 
 echo ""
 echo " ============================================================"
-echo "                    GUNBOT 3.3 UPDATE started"
+echo "                    GUNBOT 3.3.2 UPDATE started"
 echo ""
 echo "                        Patch ${LATEST_PATCH}"
 echo ""
