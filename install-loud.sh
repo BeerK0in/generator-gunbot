@@ -27,18 +27,18 @@ echo ""
 
 logMessage "(1/6) Update the base system"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-apt update
+apt-get update
 
 
 logMessage "(2/6) Install nodejs 7.x"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 curl -sL https://deb.nodesource.com/setup_7.x | bash -
-apt -y install nodejs
+apt-get -y install nodejs
 
 
 logMessage "(3/6) Install tools"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-apt -y install unzip
+apt-get -y install unzip
 npm install -g pm2 yo@1.8.5 generator-gunbot gunbot-monitor
 
 
