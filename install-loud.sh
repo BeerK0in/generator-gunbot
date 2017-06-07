@@ -40,7 +40,7 @@ apt -y install nodejs
 logMessage "(3/6) Install tools"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 apt -y install unzip
-npm install -g pm2 yo generator-gunbot gunbot-monitor
+npm install -g pm2 yo@1.8.5 generator-gunbot gunbot-monitor
 
 
 logMessage "(4/6) Install GUNBOT"
