@@ -28,7 +28,6 @@ echo ""
 logMessage "(1/6) Update the base system"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 apt update
-apt -y upgrade
 
 
 logMessage "(2/6) Install nodejs 7.x"
