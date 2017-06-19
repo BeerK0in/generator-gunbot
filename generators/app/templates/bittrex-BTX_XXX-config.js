@@ -31,7 +31,7 @@ var config = {
   //-----------------------------------------------
   //  PRIMARY SETTINGS
   //-----------------------------------------------
-  DEFAULT_MARKET_NAME: 'poloniex',
+  DEFAULT_MARKET_NAME: 'bittrex',
   DEFAULT_CURRENCY_PAIR: 'BTC_ETH', // Single pair format for all markets!
   BTC_TRADING_LIMIT: <%= btcTradingLimit %>, // [DEFAULT: 0.01] Max amount of BTC balance to use for each pair.
   SECURITY_MARGIN: 60, // Sell all balance if currency decreases x% after you bought it.
