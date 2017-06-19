@@ -1,7 +1,6 @@
 'use strict';
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
-const yosay = require('yosay');
 const parameters = require('./parameters');
 const altCurrencies = require('./currencies.js');
 const defaultValues = require('./defaultValues.js');
@@ -16,7 +15,7 @@ module.exports = class extends Generator {
     this.argument('action', {type: String, required: true});
 
     // Helper function to start a GUNBOT for the given currency index.
-    this.startGunbotCurrency = (currencies, index) => {
+    this.startGunbotCurrency = (market, currencies, index) => {
       if (!this.isCurrencyIndexValid(currencies, index)) {
         return;
       }
@@ -28,7 +27,7 @@ module.exports = class extends Generator {
         `BTC_${currencies[index]}`,
         '--',
         `BTC_${currencies[index]}`,
-        parameters.markets.poloniex.name];
+        market];
 
       // Start GUNBOT
       let spawn = require('child_process').spawn;
@@ -49,7 +48,7 @@ module.exports = class extends Generator {
         if (!this.isCurrencyIndexValid(currencies, index)) {
           return;
         }
-        setTimeout(() => this.startGunbotCurrency(currencies, index), parameters.timeoutBetweenGunbotStarts);
+        setTimeout(() => this.startGunbotCurrency(market, currencies, index), parameters.timeoutBetweenGunbotStarts);
       });
     };
 
@@ -67,14 +66,9 @@ module.exports = class extends Generator {
   }
 
   prompting() {
-    // Have Yeoman greet the user.
-    this.log(yosay(
-      `Welcome to the well-made ${chalk.red('gunbot')} generator! We are in ${chalk.bold.yellow(this.options.action)} mode.`
-    ));
-
     if (this.options.action === 'init') {
       this.log(chalk.green(' /-----------------------------------------------------------------------------------\\'));
-      this.log(`  You need your Poloniex ${chalk.bold.green('API key')} and ${chalk.bold.green('API secret')} now to setup the GUNBOT config files.`);
+      this.log(`  You need your ${chalk.bold.green('API key')} and ${chalk.bold.green('API secret')} now to setup the GUNBOT config files.`);
       this.log('');
       this.log(`  Press ${chalk.bold('CTRL+C')} if you want to abort this process.`);
       this.log(`  Enter ${chalk.bold('ginit')} if you want to restart this process.`);
@@ -84,16 +78,45 @@ module.exports = class extends Generator {
 
     const prompts = [
       {
-        when: () => this.options.action === 'init',
+        type: 'list',
+        name: 'market',
+        message: 'What market?',
+        choices: parameters.markets
+      }, {
+        when: props => props.market === 'poloniex',
         type: 'input',
         name: 'poloniexApiKey',
         message: '[POLONIEX_KEY] Your Poloniex API key:',
         store: true
       }, {
-        when: () => this.options.action === 'init',
+        when: props => props.market === 'poloniex',
         type: 'password',
         name: 'poloniexApiSecret',
         message: '[POLONIEX_SECRET] Your Poloniex API secret:',
+        store: true
+      }, {
+        when: props => props.market === 'bittrex',
+        type: 'input',
+        name: 'bittrexApiKey',
+        message: '[BITTREX_KEY] Your Bittrex API key:',
+        store: true
+      }, {
+        when: props => props.market === 'bittrex',
+        type: 'password',
+        name: 'bittrexApiSecret',
+        message: '[BITTREX_SECRET] Your Bittrex API secret:',
+        store: true
+      }, {
+        when: props => props.market === 'kraken',
+        type: 'input',
+        name: 'krakenApiKey',
+        message: '[KRAKEN_KEY] Your Kraken API key:',
+        store: true
+      }, {
+        when: props => props.market === 'kraken',
+        type: 'password',
+        name: 'krakenApiSecret',
+        message: '[KRAKEN_SECRET] Your Kraken API secret:',
         store: true
       }, {
         when: () => this.options.action === 'init',
@@ -221,6 +244,22 @@ module.exports = class extends Generator {
         store: true
       },
 
+      // TIMINGS
+      // ------------------------
+      {
+        type: 'input',
+        name: 'botSleepDelay',
+        message: '[BOT_SLEEP_DELAY] Bot cycle delay. Time the bot sleeps between cycles:',
+        default: defaultValues.botSleepDelay,
+        store: true
+      }, {
+        type: 'input',
+        name: 'botOnFailSleepDelay',
+        message: '[BOT_ON_FAIL_DELAY] Bot repeat cycle delay if previous cycle failed:',
+        default: defaultValues.botOnFailSleepDelay,
+        store: true
+      },
+
       // CURRENCY/ CURRENCIES
       // ------------------------
       {
@@ -228,7 +267,7 @@ module.exports = class extends Generator {
         type: 'checkbox',
         name: 'currencies',
         message: 'Select the currencies you want to trade:',
-        choices: altCurrencies,
+        choices: props => altCurrencies[props.market],
         store: true
       }, {
         when: () => this.options.action === 'init',
@@ -243,7 +282,7 @@ module.exports = class extends Generator {
         type: 'list',
         name: 'currencyToAdd',
         message: 'Select the currency you want to add to GUNBOT:',
-        choices: altCurrencies
+        choices: props => altCurrencies[props.market]
       }, {
         when: () => this.options.action === 'add',
         type: 'confirm',
@@ -264,9 +303,56 @@ module.exports = class extends Generator {
     if (this.options.action === 'init') {
       this.fs.copyTpl(
         this.templatePath('ALLPAIRS-params.js'),
-        this.destinationPath('ALLPAIRS-params.js'), {
-          poloniexApiKey: this.props.poloniexApiKey,
-          poloniexApiSecret: this.props.poloniexApiSecret,
+        this.destinationPath('ALLPAIRS-params.js')
+      );
+
+      for (let currency of this.props.currencies) {
+        // Create empty config files.
+        this.fs.copyTpl(
+          this.templatePath(`${this.props.market}-BTX_XXX-config.js`),
+          this.destinationPath(`${this.props.market}-BTC_${currency}-config.js`),
+          {
+            poloniexApiKey: this.props.poloniexApiKey || defaultValues.poloniexApiKey,
+            poloniexApiSecret: this.props.poloniexApiSecret || defaultValues.poloniexApiSecret,
+            bittrexApiKey: this.props.bittrexApiKey || defaultValues.bittrexApiKey,
+            bittrexApiSecret: this.props.bittrexApiSecret || defaultValues.bittrexApiSecret,
+            krakenApiKey: this.props.krakenApiKey || defaultValues.krakenApiKey,
+            krakenApiSecret: this.props.krakenApiSecret || defaultValues.krakenApiSecret,
+            btcTradingLimit: this.props.btcTradingLimit || defaultValues.btcTradingLimit,
+            buyStrategy: this.props.buyStrategy || defaultValues.buyStrategy,
+            sellStrategy: this.props.sellStrategy || defaultValues.sellStrategy,
+            bbLow: this.props.bbLow || defaultValues.bbLow,
+            bbHigh: this.props.bbHigh || defaultValues.bbHigh,
+            gainBuyLevel: this.props.gainBuyLevel || defaultValues.gainBuyLevel,
+            gainSellLevel: this.props.gainSellLevel || defaultValues.gainSellLevel,
+            pingpongBuyPrice: this.props.pingpongBuyPrice || defaultValues.pingpongBuyPrice,
+            pingpongSellPrice: this.props.pingpongSellPrice || defaultValues.pingpongSellPrice,
+            stepgainBuyLevelOne: this.props.stepgainBuyLevelOne || defaultValues.stepgainBuyLevelOne,
+            stepgainBuyLevelTwo: this.props.stepgainBuyLevelTwo || defaultValues.stepgainBuyLevelTwo,
+            stepgainBuyLevelThree: this.props.stepgainBuyLevelThree || defaultValues.stepgainBuyLevelThree,
+            stepgainSellLevelOne: this.props.stepgainSellLevelOne || defaultValues.stepgainSellLevelOne,
+            stepgainSellLevelTwo: this.props.stepgainSellLevelTwo || defaultValues.stepgainSellLevelTwo,
+            stepgainSellLevelThree: this.props.stepgainSellLevelThree || defaultValues.stepgainSellLevelThree,
+            botSleepDelay: this.props.botSleepDelay || defaultValues.botSleepDelay,
+            botOnFailSleepDelay: this.props.botOnFailSleepDelay || defaultValues.botOnFailSleepDelay
+          }
+        );
+      }
+    }
+
+    // ADD action
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    if (this.options.action === 'add') {
+      this.fs.copyTpl(
+        this.templatePath(`${this.props.market}-BTX_XXX-config.js`),
+        this.destinationPath(`${this.props.market}-BTC_${this.props.currencyToAdd}-config.js`),
+        {
+          poloniexApiKey: this.props.poloniexApiKey || defaultValues.poloniexApiKey,
+          poloniexApiSecret: this.props.poloniexApiSecret || defaultValues.poloniexApiSecret,
+          bittrexApiKey: this.props.bittrexApiKey || defaultValues.bittrexApiKey,
+          bittrexApiSecret: this.props.bittrexApiSecret || defaultValues.bittrexApiSecret,
+          krakenApiKey: this.props.krakenApiKey || defaultValues.krakenApiKey,
+          krakenApiSecret: this.props.krakenApiSecret || defaultValues.krakenApiSecret,
           btcTradingLimit: this.props.btcTradingLimit || defaultValues.btcTradingLimit,
           buyStrategy: this.props.buyStrategy || defaultValues.buyStrategy,
           sellStrategy: this.props.sellStrategy || defaultValues.sellStrategy,
@@ -281,25 +367,10 @@ module.exports = class extends Generator {
           stepgainBuyLevelThree: this.props.stepgainBuyLevelThree || defaultValues.stepgainBuyLevelThree,
           stepgainSellLevelOne: this.props.stepgainSellLevelOne || defaultValues.stepgainSellLevelOne,
           stepgainSellLevelTwo: this.props.stepgainSellLevelTwo || defaultValues.stepgainSellLevelTwo,
-          stepgainSellLevelThree: this.props.stepgainSellLevelThree || defaultValues.stepgainSellLevelThree
+          stepgainSellLevelThree: this.props.stepgainSellLevelThree || defaultValues.stepgainSellLevelThree,
+          botSleepDelay: this.props.botSleepDelay || defaultValues.botSleepDelay,
+          botOnFailSleepDelay: this.props.botOnFailSleepDelay || defaultValues.botOnFailSleepDelay
         }
-      );
-
-      for (let currency of this.props.currencies) {
-        // Create empty config files.
-        this.fs.copyTpl(
-          this.templatePath(`${parameters.markets.poloniex.name}-BTX_XXX-config.js`),
-          this.destinationPath(`${parameters.markets.poloniex.name}-BTC_${currency}-config.js`)
-        );
-      }
-    }
-
-    // ADD action
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    if (this.options.action === 'add') {
-      this.fs.copyTpl(
-        this.templatePath(`${parameters.markets.poloniex.name}-BTX_XXX-config.js`),
-        this.destinationPath(`${parameters.markets.poloniex.name}-BTC_${this.props.currencyToAdd}-config.js`)
       );
     }
   }
@@ -308,14 +379,14 @@ module.exports = class extends Generator {
     // INIT action
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     if (this.options.action === 'init') {
-      this.startGunbotCurrency(this.props.currenciesToStart, 0);
+      this.startGunbotCurrency(this.props.market, this.props.currenciesToStart, 0);
     }
 
     // ADD action
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     if (this.options.action === 'add') {
       if (this.props.startCurrencyToAdd) {
-        this.startGunbotCurrency([this.props.currencyToAdd], 0);
+        this.startGunbotCurrency(this.props.market, [this.props.currencyToAdd], 0);
       }
     }
   }
