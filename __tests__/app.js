@@ -78,7 +78,7 @@ describe('generator-gunbot:app init', () => {
         assert.deepEqual(['start',
           `./${parameters.gunbotExeName}`,
           '--name',
-          `BTC_${currency}`,
+          `BTC_${currency}_${promptsParamsInit.market[0].toUpperCase()}`,
           '--',
           `BTC_${currency}`,
           promptsParamsInit.market], spawnCall.args);
@@ -139,7 +139,7 @@ describe('generator-gunbot:app add', () => {
     assert.deepEqual(['start',
       `./${parameters.gunbotExeName}`,
       '--name',
-      `BTC_${promptsParamsAdd.currencyToAdd}`,
+      `BTC_${promptsParamsAdd.currencyToAdd}_${promptsParamsAdd.market[0].toUpperCase()}`,
       '--',
       `BTC_${promptsParamsAdd.currencyToAdd}`,
       promptsParamsAdd.market], firstCall.args);
