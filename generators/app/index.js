@@ -24,7 +24,7 @@ module.exports = class extends Generator {
         'start',
         `./${parameters.gunbotExeName}`,
         '--name',
-        `BTC_${currencies[index]}`,
+        `BTC_${currencies[index]}_${market[0].toUpperCase()}`,
         '--',
         `BTC_${currencies[index]}`,
         market];
