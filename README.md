@@ -15,7 +15,7 @@ ginit
 
 That script will 
  * update the system (`apt upgrade`), 
- * install node 7.x, 
+ * install node 8.x, 
  * install required tools (`yo`, `pm2`, `unzip`), 
  * install the GUNBOT 3.3, 
  * creates some handy aliases,

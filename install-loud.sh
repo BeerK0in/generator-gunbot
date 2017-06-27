@@ -30,9 +30,9 @@ logMessage "(1/6) Update the base system"
 apt-get update
 
 
-logMessage "(2/6) Install nodejs 7.x"
+logMessage "(2/6) Install nodejs 8.x"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-curl -sL https://deb.nodesource.com/setup_7.x | bash -
+curl -sL https://deb.nodesource.com/setup_8.x | bash -
 apt-get -y install nodejs
 
 

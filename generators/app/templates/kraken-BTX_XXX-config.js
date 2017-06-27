@@ -77,9 +77,9 @@ var config = {
   BITTREX_KEY: '<%= bittrexApiKey %>',
   BITTREX_SECRET: '<%= bittrexApiSecret %>',
 
-  BITTREX_PRICE_METHOD: 'ohlc', // ohlc OR vwa 'price to buy' definition method
-  BITTREX_VWA_1_INTERVAL: 10, // weighted average interval in minutes
-  BITTREX_VWA_2_INTERVAL: 120, // weighted average interval in minutes
+  BITTREX_PRICE_METHOD:'ohlc',// ohlc OR vwa  price to buy definition method
+  BITTREX_VWA_1_INTERVAL: 0.02,// weighted average interval in minutes
+  BITTREX_VWA_2_INTERVAL: 0.04,// weighted average interval in minutes
 
 
   //---KRAKEN
@@ -88,20 +88,20 @@ var config = {
   KRAKEN_KEY: '<%= krakenApiKey %>',
   KRAKEN_SECRET: '<%= krakenApiSecret %>',
 
-  KRAKEN_PRICE_METHOD: 'vwa', // ohlc OR vwa 'price to buy' definition method
-  KRAKEN_VWA_1_INTERVAL: 1, // weighted average interval in minutes
-  KRAKEN_VWA_2_INTERVAL: 15, // weighted average interval in minutes
+  KRAKEN_PRICE_METHOD:'ohlc',// ohlc OR vwa  price to buy definition method
+  KRAKEN_VWA_1_INTERVAL: 0.02,// weighted average interval in minutes
+  KRAKEN_VWA_2_INTERVAL: 0.04,// weighted average interval in minutes
 
   //---POLONIEX
   POLONIEX_KEY: '<%= poloniexApiKey %>',
   POLONIEX_SECRET: '<%= poloniexApiSecret %>',
 
-  POLONIEX_PRICE_METHOD: 'vwa', // ohlc OR vwa 'price to buy' definition method.
-  POLONIEX_VWA_1_INTERVAL: 0.02, // Weighted average interval in hours.
-  POLONIEX_VWA_2_INTERVAL: 0.04, // Weighted average interval in hours.
+  POLONIEX_PRICE_METHOD:'vwa',// ohlc OR vwa price to buy definition method
+  POLONIEX_VWA_1_INTERVAL: 0.02,// weighted average interval in hours
+  POLONIEX_VWA_2_INTERVAL: 0.04,// weighted average interval in hours
 
 
-  //-----------------------------------------------
+//-----------------------------------------------
   //   BOT TIMINGS
   //-----------------------------------------------
   // All timings are (milliseconds) * seconds
