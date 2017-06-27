@@ -28,9 +28,9 @@ logMessage "(1/6) Update the base system"
 apt-get -qq update > /dev/null 2>&1
 
 
-logMessage "(2/6) Install nodejs 8.x"
+logMessage "(2/6) Install nodejs 6.x"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-curl -qsL https://deb.nodesource.com/setup_8.x | bash - > /dev/null 2>&1
+curl -qsL https://deb.nodesource.com/setup_6.x | bash - > /dev/null 2>&1
 apt-get -y -qq install nodejs > /dev/null 2>&1
 
 
