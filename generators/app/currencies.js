@@ -133,6 +133,7 @@ module.exports = {
     'FLDC',
     'FLO',
     'FTC',
+    'FUN',
     'GAM',
     'GAME',
     'GBG',
