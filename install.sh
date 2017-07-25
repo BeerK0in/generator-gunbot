@@ -2,8 +2,8 @@
 
 # Set variables
 # -----------------------------------
-GUNBOT_GITHUB_FOLDER_NAME="Gunbot3.3.2"
-GUNBOT_GITHUB_FILE_NAME="GUNBOT_v3.3.2_Poloniex_Bittrex_Patch"
+GUNBOT_GITHUB_FOLDER_NAME="GB3.3.3RC"
+GUNBOT_GITHUB_FILE_NAME="Gunbot_v3.3.3_core_allOs"
 
 
 # Set functions
