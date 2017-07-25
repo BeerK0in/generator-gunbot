@@ -2,8 +2,8 @@
 
 # Set variables
 # -----------------------------------
-GUNBOT_GITHUB_FOLDER_NAME="Gunbot3.3.2"
-GUNBOT_GITHUB_FILE_NAME="GUNBOT_v3.3.2_Poloniex_Bittrex_Patch"
+GUNBOT_GITHUB_FOLDER_NAME="GB3.3.3RC"
+GUNBOT_GITHUB_FILE_NAME="Gunbot_v3.3.3_core_allOs"
 
 
 # Set functions
@@ -49,7 +49,7 @@ unzip -o -qq /opt/${GUNBOT_GITHUB_FILE_NAME}.zip -d /opt/unzip-tmp
 mkdir /opt/${GUNBOT_GITHUB_FILE_NAME} -p
 
 # Copy only the executables.
-cp /opt/unzip-tmp/gunthy-* /opt/${GUNBOT_GITHUB_FILE_NAME}
+cp /opt/unzip-tmp/${GUNBOT_GITHUB_FILE_NAME}/gunthy-* /opt/${GUNBOT_GITHUB_FILE_NAME}
 
 # creates a symbolic link to the gunbot folder.
 rm /opt/gunbot > /dev/null 2>&1
