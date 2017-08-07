@@ -1,7 +1,6 @@
 'use strict';
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
-const os = require('os');
 const parameters = require('./parameters');
 const altCurrencies = require('./currencies.js');
 const defaultValues = require('./defaultValues.js');
