@@ -1,6 +1,7 @@
 'use strict';
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
+const os = require('os');
 const parameters = require('./parameters');
 const altCurrencies = require('./currencies.js');
 const defaultValues = require('./defaultValues.js');
@@ -25,6 +26,8 @@ module.exports = class extends Generator {
         `./${parameters.gunbotExeName}`,
         '--name',
         `BTC_${currencies[index]}_${market[0].toUpperCase()}`,
+        '--user',
+        os.userInfo().username,
         '--',
         `BTC_${currencies[index]}`,
         market];
