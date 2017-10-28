@@ -1,0 +1,193 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="" tvg-name="Nine Sydney" group-title="Australian TV Channels",Nine Sydney
+https://9nowch9livehls-i.akamaihd.net/hls/live/250964/sydney/master.m3u8
+#EXTINF:-1 tvg-id="" tvg-name=" 9 Gem Sydney" group-title="Australian TV Channels",9 Gem Sydney
+https://9nowgemlivehls-i.akamaihd.net/hls/live/250974/sydney/master.m3u8
+#EXTINF:-1 tvg-id="" tvg-name=" 9 Go! Sydney" group-title="Australian TV Channels",9 Go! Sydney
+https://9nowgolivehls-i.akamaihd.net/hls/live/250987/sydney/master.m3u8
+#EXTINF:-1 tvg-id="" tvg-name=" 9 Life Sydney" group-title="Australian TV Channels",9 Life Sydney
+https://9nowlifelivehls-i.akamaihd.net/hls/live/250994/sydney/master.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Sydney" group-title="Australian TV Channels",7Sydney
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224814/SYD1/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Two Sydney" group-title="Australian TV Channels",7Two Sydney
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224827/SYD2/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Mate Sydney" group-title="Australian TV Channels",7Mate Sydney
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224840/SYD3/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Flix Sydney" group-title="Australian TV Channels",7Flix Sydney
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224857/SYD6/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="ABC News 24" group-title="Australian TV Channels",ABC News 24
+http://iphonestreaming.abc.net.au/news24/news24.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="TEN Sydney" group-title="Australian TV Channels",TEN Sydney
+http://csm-e.cds1.yospace.com/csm/extlive/networkten01,SDTEN.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="SBS One" group-title="Australian TV Channels",SBS One
+http://sbslivefvstreaming.sbs.com.au/out/u/sbs1-mo-000-c3093-delpkg1-delpkg1-abr/index-root-ipad.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="SBS Viceland" group-title="Australian TV Channels",SBS Viceland
+http://sbslivefvstreaming.sbs.com.au/out/u/sbs2-mo-000-c3093-delpkg1-delpkg1-abr/index-root-ipad.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Food Network" group-title="Australian TV Channels",Food Network
+http://sbslivefvstreaming.sbs.com.au/out/u/fdnet-mo-000-c3094-delpkg1-delpkg1-abr/index-root-ipad.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="NITV" group-title="Australian TV Channels",NITV
+http://sbslivefvstreaming.sbs.com.au/out/u/nitv-mo-000-c3094-delpkg1-delpkg1-abr/index-root-ipad.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Fox Sport News" group-title="Australian TV Channels",Fox Sport News
+http://foxsportshlsg01-lh.akamaihd.net/i/fsnewshls_0@301672/index_4628_av-p.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Sky Racing 1" group-title="Australian TV Channels",Sky Racing 1
+http://kitdigitaioslive-i.akamaihd.net/hls/live/219669/skyracing_live_mobil/sky1.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Sky Racing 2" group-title="Australian TV Channels",Sky Racing 2
+http://kitdigitaioslive-i.akamaihd.net/hls/live/219669/skyracing_live_mobil/sky2.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Thoroughbred Central" group-title="Australian TV Channels",Thoroughbred Central
+http://kitdigitaioslive-i.akamaihd.net/hls/live/219670/skyr_ios_unblocked/skyrnsw_extreme@219670.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="C31 Melbourne" group-title="Australian TV Channels",C31 Melbourne
+http://c31.mediafoundry.com.au/sites/default/files/manifest/manifest_live_27.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="CTV Fishing" group-title="Australian TV Channels",CTV Fishing
+http://manifester.mediafoundry.com.au/stream/c31melbourne_fishing/playlist.m3u8g
+#EXTINF:-1 tvg-id="" tvg-name="C44 Adelaide" group-title="Australian TV Channels",C44 Adelaide
+http://manifester.mediafoundry.com.au/master/t/c44adelaide_1/manifest.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="WTV Perth" group-title="Australian TV Channels",WTV Perth
+http://manifester-wtvperth.mediafoundry.com.au/stream/wtvperth/playlist.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Bigpond Sportsfan" group-title="Australian TV Channels",Bigpond Sportsfan
+mms://ken-cdn220-is-2.se.bptvlive.ngcdn.telstra.com/bp_online_bpsport_high
+#EXTINF:-1 tvg-id="" tvg-name="Bigpond Movies Extra" group-title="Australian TV Channels",Bigpond Movies Extra
+mms://ken-cdn220-is-1.se.bptvlive.ngcdn.telstra.com/bp_online_movieextra_high
+#EXTINF:-1 tvg-id="" tvg-name="EXPO" group-title="Australian TV Channels",EXPO
+http://tvsn-lh.akamaihd.net/i/EXPO_1@137553/master.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Bloomberg" group-title="Australian TV Channels",Bloomberg
+http://btvasia-i.akamaihd.net/hls/live/203322/btvasia_ios/P1/M24K.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="TVSN" group-title="Australian TV Channels",TVSN
+http://tvsn-lh.akamaihd.net/i/TVSN_1@137553/master.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="ACCTV" group-title="Australian TV Channels",ACCTV
+http://live-mobile.cdn01.net/hls-live/202E1F/default/mobile/stream_14949_1.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Fetch TV Movie Trailers" group-title="Australian TV Channels",Fetch TV Movie Trailers
+http://cdnl.fetchtv.micdn.net.au//trail/mobile.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Skuff TV" group-title="Australian TV Channels",Skuff TV
+http://ii-only-fz.cdn.iinet.net.au/20051/_definst_/skufftvlinear/playlist.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="C music TV" group-title="Australian TV Channels",C music TV
+mmsh://streaming.cmusic.tv/cmusic-tv?MSWMExt=.asf
+#EXTINF:-1 tvg-id="" tvg-name="Australia Plus" group-title="Australian TV Channels",Australia Plus
+rtmp://118.97.183.196/jhos//aplus
+#EXTINF:-1 tvg-id="" tvg-name="Hillsong TV" group-title="Australian TV Channels",illsong TV
+http://acaooyalahd2-lh.akamaihd.net/i/TBN20_delivery@394530/index_2528_av-p.m3u8?sd=10&rebase=on
+#EXTINF:-1 tvg-id="" tvg-name="TEN Melbourne" group-title="Australian TV Channels",TEN Melbourne
+http://csm-e.cds1.yospace.com/csm/extlive/networkten01,SDATV.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="TEN Brisbane" group-title="Australian TV Channels",TEN Brisbane
+http://csm-e.cds1.yospace.com/csm/extlive/networkten01,SDTVQ.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="TEN Adelaide" group-title="Australian TV Channels",TEN Adelaide
+http://csm-e.cds1.yospace.com/csm/extlive/networkten01,SDADS.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="TEN Perth" group-title="Australian TV Channels",TEN Perth
+http://csm-e.cds1.yospace.com/csm/extlive/networkten01,SDNEW.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="9 Melbourne" group-title="Australian TV Channels",9 Melbourne
+https://9nowch9livehls-i.akamaihd.net/hls/live/250962/melbourne/master.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="9 Gem Melbourne" group-title="Australian TV Channels",9 Gem Melbourne
+https://9nowgemlivehls-i.akamaihd.net/hls/live/250972/melbourne/master.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="9 Go! Melbourne" group-title="Australian TV Channels",9 Go! Melbourne
+https://9nowgolivehls-i.akamaihd.net/hls/live/250977/melbourne/master.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="9 Life Melbourne" group-title="Australian TV Channels",9 Life Melbourne
+https://9nowlifelivehls-i.akamaihd.net/hls/live/250992/melbourne/master.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="9 Gem Adelaide" group-title="Australian TV Channels",9 Gem Adelaide
+https://9nowgemlivehls-i.akamaihd.net/hls/live/250970/adelaide/master.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="9 Gem Brisbane" group-title="Australian TV Channels",9 Gem Brisbane
+https://9nowgemlivehls-i.akamaihd.net/hls/live/250971/brisbane/master.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="9 Gem Perth" group-title="Australian TV Channels",9 Gem Perth
+https://9nowgemlivehls-i.akamaihd.net/hls/live/250973/perth/master.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="9 GO Perth" group-title="Australian TV Channels",9 GO Perth
+https://9nowgolivehls-i.akamaihd.net/hls/live/250978/perth/master.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="9 GO Brisbane" group-title="Australian TV Channels",9 GO Brisbane
+https://9nowgolivehls-i.akamaihd.net/hls/live/250976/brisbane/master.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="9 GO Adelaide" group-title="Australian TV Channels",9 GO Adelaide
+https://9nowgolivehls-i.akamaihd.net/hls/live/250975/adelaide/master.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="9 Life Perth" group-title="Australian TV Channels",9 Life Perth
+https://9nowlifelivehls-i.akamaihd.net/hls/live/250993/perth/master.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="9 Life Brisbane" group-title="Australian TV Channels",9 Life Brisbane
+https://9nowlifelivehls-i.akamaihd.net/hls/live/250991/brisbane/master.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="9 Life Adelaide" group-title="Australian TV Channels",9 Life Adelaide
+https://9nowlifelivehls-i.akamaihd.net/hls/live/250990/adelaide/master.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="9 Brisbane" group-title="Australian TV Channels",9 Brisbane
+https://9nowch9livehls-i.akamaihd.net/hls/live/250961/brisbane/master.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="9 Adelaide" group-title="Australian TV Channels",9 Adelaide
+https://9nowch9livehls-i.akamaihd.net/hls/live/250960/adelaide/master.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="9 Perth" group-title="Australian TV Channels",9 Perth
+https://9nowch9livehls-i.akamaihd.net/hls/live/250963/perth/master.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Sydney" group-title="Australian TV Channels",7Sydney
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224814/SYD1/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Two Sydney" group-title="Australian TV Channels",7Two Sydney
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224827/SYD2/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Mate Sydney" group-title="Australian TV Channels",7Mate Sydney
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224840/SYD3/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Adelaide" group-title="Australian TV Channels",7Mate Sydney
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224816/ADE1/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7two Adelaide" group-title="Australian TV Channels",7two Adelaide
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224829/ADE2/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Mate Adelaide" group-title="Australian TV Channels",7Mate Adelaide
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224842/ADE3/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Brisbane" group-title="Australian TV Channels",7Brisbane
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224815/BRI1/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Two Brisbane" group-title="Australian TV Channels",7Two Brisbane
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224828/BRI2/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7MATE Brisbane" group-title="Australian TV Channels",7MATE Brisbane
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224841/BRI3/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Melbourne" group-title="Australian TV Channels",7Melbourne
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224813/MEL1/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7TWO Melbourne" group-title="Australian TV Channels",7TWO Melbourne
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224826/MEL2/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7MATE Melbourne" group-title="Australian TV Channels",7MATE Melbourne
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224839/MEL3/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7 Rockhampton" group-title="Australian TV Channels",7 Rockhampton
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224821/RKY1/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7TWO Rockhampton" group-title="Australian TV Channels",7TWO Rockhampton
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224834/RKY2/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7MATE Rockhampton" group-title="Australian TV Channels",7MATE Rockhampton
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224847/RKY3/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Cairns" group-title="Australian TV Channels",7Cairns
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224818/CNS1/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Two Cairns" group-title="Australian TV Channels",7Two Cairns
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224831/CNS2/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7MATE Cairns" group-title="Australian TV Channels",7MATE Cairns
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224844/CNS3/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Mackay" group-title="Australian TV Channels",7Mackay
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224820/MKY1/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Two Mackay" group-title="Australian TV Channels",7Two Mackay
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224833/MKY2/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7MATE Mackay" group-title="Australian TV Channels",7MATE Mackay
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224846/MKY3/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Sunshine Coast" group-title="Australian TV Channels",7Sunshine Coast
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224823/SSC1/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Two Sunshine Coast" group-title="Australian TV Channels",7Two Sunshine Coast
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224836/SSC2/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7MATE Sunshine Coast" group-title="Australian TV Channels",7MATE Sunshine Coast
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224849/SSC3/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Toowoomba " group-title="Australian TV Channels",7Toowoomba
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224824/TWB1/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Two Toowoomba " group-title="Australian TV Channels",7Two Toowoomba
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224837/TWB2/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7MATE Toowoomba" group-title="Australian TV Channels",7MATE Toowoomba
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224850/TWB3/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Townsville" group-title="Australian TV Channels",7Townsville
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224819/TSV1/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Two Townsville" group-title="Australian TV Channels",7Two Townsville
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224832/TSV2/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7MATE Townsville" group-title="Australian TV Channels",7MATE Townsville
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224845/TSV3/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Widebay" group-title="Australian TV Channels",7Widebay
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224822/WBY1/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Two Widebay" group-title="Australian TV Channels",7Two Widebay
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224835/WBY2/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7MATE Widebay" group-title="Australian TV Channels",7MATE Widebay
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224848/WBY3/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Perth" group-title="Australian TV Channels",7Perth
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224817/PER1/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Two Perth" group-title="Australian TV Channels",7Two Perth
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224830/PER2/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7MATE Perth" group-title="Australian TV Channels",7MATE Perth
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224843/PER3/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7HD" group-title="Australian TV Channels",7HD
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224838/MISC2/master_vhigh.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Flix Adelaide" group-title="Australian TV Channels",7Flix Adelaide
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224859/ADE6/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Flix Sydney" group-title="Australian TV Channels",7Flix Sydney
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224857/SYD6/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Flix Perth" group-title="Australian TV Channels",7Flix Perth
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224860/PER6/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Flix Melbourne" group-title="Australian TV Channels",7Flix Melbourne
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224856/MEL6/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Flix Queensland" group-title="Australian TV Channels",7Flix Queensland
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224858/BRI6/master_high.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7Flix Brisbane" group-title="Australian TV Channels",7Flix Brisbane
+https://sevenwestmedia01-i.akamaihd.net/hls/live/224858/BRI6/master.m3u8
